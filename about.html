@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Purple Hat Institute</title>
+<meta name="description" content="Learn about Purple Hat Institute – Engineering झाली सोपी. Expert faculty, 50K+ students, proven results since 2014.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+  :root {
+    --primary: #9900CC;
+    --primary-light: #EDD9FF;
+    --dark: #2D0050;
+    --dark-muted: #1A0035;
+    --muted: #6B4D8A;
+    --light-bg: #E8D0FF;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); color: var(--dark); background: var(--primary-light); overflow-x: hidden; }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
+
+  /* ── HEADER (exact match with Home page) ─────────── */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: transparent; padding: 0; box-shadow: none;
+    transition: background .4s, box-shadow .4s, backdrop-filter .4s;
+  }
+  .site-header.scrolled { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 4px 30px rgba(153,0,204,0.1); border-bottom: 1px solid rgba(255,255,255,0.3); }
+  .header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px; padding: 0 45px;
+  }
+  .header-logo { flex: 0 0 auto; display: flex; align-items: center; }
+  .header-logo img {
+    height: 120px; width: 120px; max-width: none;
+    object-fit: contain; mix-blend-mode: multiply; display: block;
+  }
+  .nav-links {
+    display: flex; list-style: none; gap: 32px; margin: 0; padding: 0;
+    flex: 1 1 auto; justify-content: center; align-items: center;
+  }
+  .nav-links a {
+    font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: .9rem;
+    color: var(--dark); text-decoration: none; position: relative;
+    transition: color .25s; padding: 6px 0;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+  .header-phone-wrap {
+    flex: 0 0 auto; display: flex; align-items: center; justify-content: flex-end;
+  }
+  .header-phone {
+    background: transparent; color: var(--primary); font-weight: 700; font-size: .85rem;
+    padding: 0; border: none; box-shadow: none; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: opacity .2s;
+  }
+  .header-phone:hover { opacity: .8; color: var(--primary); }
+  .header-phone svg { flex-shrink: 0; }
+  .hamburger { background: none; border: none; color: var(--dark); font-size: 1.4rem; cursor: pointer; display: none; }
+
+  /* ── HERO BANNER ─────────────────────────── */
+  .hero-banner {
+    position: relative; min-height: 420px;
+    background: var(--primary-light);
+    display: flex; align-items: center; overflow: hidden; padding-top: 140px; padding-bottom: 60px;
+  }
+  .hero-banner::before {
+    content: ''; position: absolute; inset: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><circle cx="600" cy="100" r="300" fill="%239900CC" opacity=".06"/><circle cx="100" cy="350" r="200" fill="%239900CC" opacity=".04"/></svg>') no-repeat center/cover;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  .hero-breadcrumb { font-size: .85rem; color: var(--muted); margin-bottom: 16px; }
+  .hero-breadcrumb a { color: var(--primary); text-decoration: none; }
+  .hero-title {
+    font-family: var(--font-heading); font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 800; color: var(--dark); line-height: 1.15; margin-bottom: 20px;
+  }
+  .hero-title .accent { color: var(--primary); }
+  .hero-subtitle { font-size: 1.05rem; color: var(--muted); max-width: 540px; line-height: 1.7; }
+  .hero-image-col { position: relative; display: flex; justify-content: center; align-items: flex-end; }
+  .hero-img {
+    width: 340px; max-width: 100%;
+    border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+    object-fit: cover; object-position: top center;
+    filter: drop-shadow(0 20px 40px rgba(45,0,80,.3));
+    animation: heroFloat 4s ease-in-out infinite;
+  }
+  @keyframes heroFloat {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  /* ── STATS BAR ───────────────────────────── */
+  .stats-bar { background: var(--primary); padding: 28px 0; }
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800;
+    color: #fff; line-height: 1;
+  }
+  .stat-label { font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.8); text-transform: uppercase; letter-spacing: .5px; margin-top: 4px; }
+  .stat-divider { width: 1px; background: rgba(255,255,255,.25); align-self: stretch; }
+
+  /* ── SECTION COMMON ──────────────────────── */
+  .section { padding: 90px 0; }
+  .section-sm { padding: 60px 0; }
+  .badge-tag {
+    display: inline-block; font-size: .78rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.5px; color: #fff; background: var(--primary);
+    padding: 5px 14px; border-radius: 50px; margin-bottom: 18px;
+  }
+  .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; color: var(--dark); }
+  .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-top: 14px; }
+
+
+
+  /* ── MARQUEE ─────────────────────────────── */
+  .marquee-wrap {
+    background: var(--dark); overflow: hidden; padding: 20px 0;
+    display: flex; white-space: nowrap;
+  }
+  .marquee-track {
+    display: inline-flex; animation: marquee 30s linear infinite; will-change: transform;
+  }
+  .marquee-track + .marquee-track { margin-left: 0; }
+  .marquee-item {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600;
+    color: rgba(255,255,255,.6); padding: 0 40px; white-space: nowrap;
+  }
+  .marquee-item .dot { color: var(--primary); font-size: 1.3rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── STORY / WHY SECTION ─────────────────── */
+  .bg-light-alt { background: var(--light-bg); }
+  .bg-section { background: var(--primary-light); }
+  .story-image-wrap {
+    position: relative; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 30px 70px rgba(153,0,204,.15);
+  }
+  .story-image-wrap img { width: 100%; height: 500px; object-fit: cover; object-position: top center; display: block; }
+  .story-badge {
+    position: absolute; bottom: 30px; left: 30px;
+    background: var(--primary); border-radius: 14px; padding: 16px 22px;
+    display: flex; align-items: center; gap: 14px; max-width: 220px;
+  }
+  .story-badge-icon { font-size: 1.8rem; color: #fff; }
+  .story-badge-text { font-family: var(--font-heading); font-size: .85rem; font-weight: 700; color: #fff; }
+  .numbered-item { display: flex; gap: 22px; margin-bottom: 34px; }
+  .numbered-item:last-child { margin-bottom: 0; }
+  .num-label {
+    font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800;
+    color: var(--primary); opacity: .35; line-height: 1; flex-shrink: 0; min-width: 52px;
+  }
+  .num-content h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; color: var(--dark); }
+  .num-content p { font-size: .9rem; color: var(--muted); line-height: 1.7; margin: 0; }
+
+  /* ── ACCORDION / FAQ ─────────────────────── */
+  .faq-item {
+    background: #fff; border-radius: 14px; padding: 24px 28px;
+    margin-bottom: 14px; box-shadow: 0 4px 20px rgba(153,0,204,.06);
+    cursor: pointer; transition: box-shadow .25s;
+  }
+  .faq-item.open { box-shadow: 0 8px 30px rgba(153,0,204,.12); }
+  .faq-header { display: flex; align-items: flex-start; gap: 20px; }
+  .faq-num {
+    font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800;
+    color: var(--primary); opacity: .25; line-height: 1; flex-shrink: 0; min-width: 36px;
+  }
+  .faq-item.open .faq-num { opacity: 1; }
+  .faq-question { font-size: 1rem; font-weight: 700; color: var(--dark); flex: 1; padding-top: 4px; }
+  .faq-icon { color: var(--muted); transition: transform .25s; flex-shrink: 0; margin-top: 6px; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--primary); }
+  .faq-answer { font-size: .9rem; color: var(--muted); line-height: 1.8; margin-top: 14px; padding-left: 56px; display: none; }
+  .faq-item.open .faq-answer { display: block; }
+
+
+
+  /* ── CTA BANNER ──────────────────────────── */
+  .cta-section {
+    background: linear-gradient(120deg, #0F0020 0%, #1A0035 100%);
+    padding: 80px 0; position: relative; overflow: hidden;
+  }
+  .cta-section::before {
+    content: ''; position: absolute; top: -100px; right: -100px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: var(--primary); opacity: .1;
+  }
+  .cta-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: #fff; margin-bottom: 12px; }
+  .cta-sub { color: rgba(255,255,255,.6); font-size: 1rem; margin-bottom: 32px; }
+  .btn-primary-custom {
+    background: var(--primary); color: #fff; font-weight: 700; font-size: .95rem;
+    padding: 14px 36px; border-radius: 50px; border: none; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-primary-custom:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(153,0,204,.4); color: #fff; }
+  .btn-ghost {
+    background: transparent; color: #fff; font-weight: 600; font-size: .95rem;
+    padding: 14px 36px; border-radius: 50px; border: 2px solid rgba(255,255,255,.25);
+    text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+    transition: all .2s;
+  }
+  .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+
+  /* ── FOOTER (matches Home page) ──────────── */
+  .site-footer { background: var(--primary-light); color: var(--dark); padding: 40px 0 0; }
+  .footer-logo img { height: 120px; width: 120px; object-fit: contain; mix-blend-mode: multiply; display: block; }
+  .footer-desc { font-size: .9rem; line-height: 1.8; margin: 10px 0 16px; color: var(--muted); }
+  .social-links { display: flex; gap: 10px; }
+  .social-link {
+    width: 38px; height: 38px; border-radius: 50%; background: rgba(153,0,204,.08);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--dark); font-size: .9rem; text-decoration: none;
+    transition: background .2s, color .2s;
+  }
+  .social-link:hover { background: var(--primary); color: #fff; }
+  .footer-heading { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dark); margin-bottom: 20px; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { color: var(--muted); font-size: .88rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--primary); }
+  .app-btn {
+    display: flex; align-items: center; gap: 12px; background: rgba(153,0,204,.06);
+    border: 1px solid rgba(153,0,204,.12); border-radius: 10px;
+    padding: 10px 16px; text-decoration: none; margin-bottom: 10px;
+    transition: background .2s, border-color .2s;
+  }
+  .app-btn:hover { background: rgba(153,0,204,.12); border-color: var(--primary); }
+  .app-btn i { font-size: 1.6rem; color: var(--dark); }
+  .app-btn-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  .app-btn-store { font-size: .9rem; font-weight: 700; color: var(--dark); }
+  .footer-bottom { border-top: 1px solid rgba(153,0,204,.12); padding: 18px 0; margin-top: 25px; }
+  .footer-bottom-text { font-size: .82rem; color: var(--muted); }
+  .footer-bottom a { font-size: .82rem; color: var(--muted); text-decoration: none; margin-right: 16px; }
+  .footer-bottom a:hover { color: var(--primary); }
+
+  /* ── WHATSAPP ─────────────────────────────── */
+  .whatsapp-btn {
+    position: fixed; bottom: 30px; right: 30px; z-index: 9999;
+    width: 60px; height: 60px; background: #25D366; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 15px rgba(37,211,102,.4); text-decoration: none;
+    animation: wpulse 2s infinite; transition: transform .3s;
+  }
+  .whatsapp-btn:hover { transform: scale(1.12); }
+  @keyframes wpulse {
+    0%,100% { box-shadow: 0 4px 15px rgba(37,211,102,.4); }
+    50% { box-shadow: 0 4px 30px rgba(37,211,102,.7); }
+  }
+
+  /* ── MOBILE MENU ─────────────────────────── */
+  .mobile-menu {
+    display: none; position: fixed; top: 0; right: 0; bottom: 0; width: 280px;
+    background: var(--dark); z-index: 2000; padding: 30px 24px;
+    transform: translateX(100%); transition: transform .35s;
+    box-shadow: -10px 0 40px rgba(0,0,0,.3);
+  }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1999;
+  }
+  .mobile-overlay.open { display: block; }
+  .mobile-menu-links { list-style: none; margin-top: 40px; }
+  .mobile-menu-links li { border-bottom: 1px solid rgba(255,255,255,.08); }
+  .mobile-menu-links a {
+    display: block; padding: 16px 0; font-size: 1rem; font-weight: 600;
+    color: rgba(255,255,255,.8); text-decoration: none;
+  }
+  .mobile-menu-links a:hover, .mobile-menu-links a.active { color: var(--primary); }
+  .mobile-close { background: none; border: none; color: rgba(255,255,255,.6); font-size: 1.4rem; cursor: pointer; float: right; }
+
+  /* ── RESPONSIVE ──────────────────────────── */
+  @media (max-width: 991px) {
+    .nav-links, .header-phone-wrap { display: none !important; }
+    .hamburger { display: block; }
+    .header-inner { padding: 0 15px; }
+    .header-logo img { height: 80px; width: 80px; }
+    .hero-image-col { display: none; }
+
+  }
+  @media (max-width: 767px) {
+    .section { padding: 60px 0; }
+    .story-badge { display: none; }
+  }
+
+  /* ── PAGE TRANSITION OVERLAY ─────────────── */
+  #ph-overlay {
+    position: fixed; inset: 0; background: #0F0020;
+    z-index: 999999; pointer-events: none;
+    opacity: 1; transition: opacity .4s ease;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER (exact copy from Home page) -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo"><img src="logo.png" alt="Purple Hat Institute"></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="header-phone-wrap">
+      <a href="tel:8484813498" class="header-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#9900CC"><path d="M7.10986 0.999969C7.83429 0.995236 8.53601 1.25306 9.08545 1.72556C9.5683 2.14084 9.90546 2.69704 10.0503 3.31247L10.1001 3.58005L10.1011 3.58884L10.1499 3.92087C10.2737 4.69064 10.473 5.44666 10.7456 6.1777L10.814 6.38181C10.9558 6.86073 10.9762 7.36862 10.8716 7.85934C10.752 8.4202 10.474 8.93494 10.0708 9.34274L9.35107 10.0625C10.5269 11.9073 12.0922 13.4715 13.937 14.6474L14.6528 13.9326L14.6567 13.9287L14.8149 13.7832C15.1942 13.4585 15.6496 13.2326 16.1401 13.1279C16.7 13.0085 17.2828 13.052 17.8188 13.2529H17.8198C18.5518 13.526 19.3088 13.7266 20.0796 13.8506L20.4106 13.8984L20.4194 13.8994L20.6899 13.9502C21.3118 14.097 21.8734 14.4395 22.2896 14.9306C22.7598 15.4857 23.0105 16.193 22.9985 16.9199H22.9995V19.916L22.9966 20.0722C22.9791 20.4365 22.895 20.7949 22.7485 21.1299C22.5812 21.5126 22.3356 21.8562 22.0278 22.1386C21.7202 22.4209 21.3569 22.6357 20.9614 22.7695C20.6153 22.8866 20.2505 22.9396 19.8862 22.9258L19.73 22.916C19.724 22.9154 19.7174 22.9147 19.7114 22.914C16.4791 22.5627 13.374 21.4584 10.646 19.6894V19.6884C8.10952 18.075 5.95855 15.9239 4.34619 13.3867V13.3857C2.57367 10.6469 1.47 7.52929 1.12549 4.28513L1.12354 4.2695C1.08614 3.85488 1.13616 3.4365 1.26904 3.04196C1.40198 2.64754 1.6154 2.28493 1.896 1.97751C2.17677 1.66996 2.51897 1.42409 2.8999 1.25583C3.28076 1.08765 3.69255 1.00038 4.10889 0.999969H7.10986ZM4.00732 3.00583C3.90421 3.01667 3.80275 3.04289 3.70752 3.08493C3.58061 3.141 3.46709 3.22368 3.37354 3.32614C3.28005 3.42857 3.20886 3.54923 3.16455 3.68063C3.12193 3.80719 3.10484 3.94112 3.11475 4.07419L3.18115 4.62302C3.5287 7.17777 4.39827 9.63367 5.73584 11.8379L6.02881 12.3066L6.03369 12.3134L6.31299 12.7392C7.64027 14.7063 9.33323 16.4002 11.3003 17.7275L11.7261 18.0058L11.7339 18.0107L12.2007 18.3037C14.5469 19.7293 17.1792 20.6245 19.9126 20.9238C20.0504 20.9359 20.1898 20.9193 20.3208 20.875C20.4524 20.8303 20.5738 20.759 20.6763 20.665C20.7787 20.571 20.8608 20.4565 20.9165 20.3291C20.9723 20.2015 21.0001 20.063 20.9995 19.9238V16.9199L21.0005 16.8955C21.0066 16.6503 20.9217 16.4107 20.7632 16.2236C20.6065 16.0389 20.3882 15.9167 20.1489 15.8808V15.8818C19.1143 15.7453 18.0984 15.4917 17.1206 15.1269L17.1177 15.1259C16.939 15.0589 16.7448 15.0443 16.5581 15.084C16.3713 15.1238 16.1989 15.2163 16.063 15.3506L14.7974 16.6172C14.4791 16.9354 13.9865 17.0017 13.5952 16.7793C10.9354 15.2668 8.73268 13.0642 7.22021 10.4043C6.99782 10.013 7.06504 9.52136 7.3833 9.20309L8.64795 7.93649C8.78229 7.8006 8.87564 7.62923 8.91553 7.44235C8.95538 7.2554 8.94079 7.06074 8.87354 6.88181L8.87256 6.87985C8.50877 5.90494 8.25641 4.89185 8.11963 3.86032L8.10303 3.77048C8.05475 3.56559 7.94244 3.38049 7.78174 3.24216C7.62082 3.10376 7.42046 3.01996 7.21045 3.0029L7.11963 2.99997H4.11084L4.00732 3.00583ZM15.1401 4.00388L15.2417 4.01852L15.4604 4.0654C16.5474 4.31995 17.5439 4.8735 18.3354 5.66501C19.1269 6.4566 19.6796 7.45295 19.9341 8.54001L19.981 8.75876L19.9956 8.85934C20.0422 9.36407 19.6999 9.83218 19.1919 9.93161C18.6839 10.0307 18.1904 9.72605 18.0435 9.24118L18.0181 9.14157L17.9507 8.85153C17.7677 8.18295 17.4129 7.57163 16.9204 7.07907C16.4279 6.58659 15.8165 6.23272 15.1479 6.04977L14.8589 5.98141L14.7593 5.957C14.274 5.81027 13.9697 5.31683 14.0688 4.80856C14.168 4.3004 14.6354 3.95756 15.1401 4.00388ZM15.1606 0.00582886L15.5815 0.0614929C17.676 0.384726 19.6178 1.36642 21.1226 2.86911C22.6273 4.37197 23.6111 6.31303 23.937 8.4072L23.9937 8.82809L23.9995 8.93063C24.0049 9.43726 23.6261 9.87557 23.1118 9.93356C22.5972 9.99139 22.13 9.64785 22.0229 9.15231L22.0063 9.05173L21.9614 8.71481C21.7007 7.03943 20.9133 5.48647 19.7095 4.28415C18.5056 3.08184 16.9517 2.29655 15.2759 2.03806L14.9399 1.99411L14.8384 1.97751C14.3429 1.87091 13.999 1.40417 14.0562 0.889618C14.1133 0.375065 14.5513 -0.00478368 15.0581 -3.05176e-05L15.1606 0.00582886Z"></path></svg>
+        <span>8484813498</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  <div style="margin-top:10px;">
+    <img src="logo.png" alt="Purple Hat" style="height:60px;width:60px;object-fit:contain;">
+  </div>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About Us</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <a href="tel:8484813498" class="btn-primary-custom mt-4 w-100 justify-content-center"><i class="fa-solid fa-phone"></i> 8484813498</a>
+</div>
+
+<!-- HERO BANNER -->
+<section class="hero-banner">
+  <div class="container">
+    <div class="row align-items-end">
+      <div class="col-lg-6 col-md-8" style="padding-bottom:40px;">
+        <div class="hero-content" data-anim="fade-up">
+          <div class="hero-breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; About Us</div>
+          <h1 class="hero-title">We Make<br><span class="accent">Engineering</span><br>Simple.</h1>
+          <p class="hero-subtitle">Purple Hat Institute has been helping engineering students crack exams with confidence since 2014. Expert faculty, proven results, and learning in your language.</p>
+          <div class="d-flex gap-3 mt-4">
+            <a href="contact.html" class="btn-primary-custom"><i class="fa-solid fa-graduation-cap"></i> Enroll Now</a>
+            <a href="tel:8484813498" class="btn-ghost" style="color:var(--dark);border-color:rgba(45,0,80,.25);"><i class="fa-solid fa-phone"></i> Call Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-image-col">
+        <img src="hero-banner.png" alt="Mangesh Sir – Purple Hat Institute" class="hero-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="row justify-content-center text-center g-0">
+      <div class="col-6 col-md-3 stat-item py-2">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Students Enrolled</div>
+      </div>
+      <div class="d-none d-md-block col-md-auto stat-divider"></div>
+      <div class="col-6 col-md-3 stat-item py-2">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years Teaching</div>
+      </div>
+      <div class="d-none d-md-block col-md-auto stat-divider"></div>
+      <div class="col-6 col-md-3 stat-item py-2">
+        <div class="stat-number">95%</div>
+        <div class="stat-label">Pass Rate</div>
+      </div>
+      <div class="d-none d-md-block col-md-auto stat-divider"></div>
+      <div class="col-6 col-md-3 stat-item py-2">
+        <div class="stat-number">4.8&#9733;</div>
+        <div class="stat-label">App Rating</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- MARQUEE BANNER -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="dot">&#9733;</span> Engineering &#2333;&#2366;&#2354;&#2368; &#2360;&#2379;&#2346;&#2368;</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Expert Faculty</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> 50K+ Students</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Learn in Marathi</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Proven Results</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Degree & Diploma</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Engineering &#2333;&#2366;&#2354;&#2368; &#2360;&#2379;&#2346;&#2368;</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Expert Faculty</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> 50K+ Students</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Learn in Marathi</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Proven Results</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Degree & Diploma</span>
+  </div>
+  <div class="marquee-track" aria-hidden="true">
+    <span class="marquee-item"><span class="dot">&#9733;</span> Engineering &#2333;&#2366;&#2354;&#2368; &#2360;&#2379;&#2346;&#2368;</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Expert Faculty</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> 50K+ Students</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Learn in Marathi</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Proven Results</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Degree & Diploma</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Engineering &#2333;&#2366;&#2354;&#2368; &#2360;&#2379;&#2346;&#2368;</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Expert Faculty</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> 50K+ Students</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Learn in Marathi</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Proven Results</span>
+    <span class="marquee-item"><span class="dot">&#9733;</span> Degree & Diploma</span>
+  </div>
+</div>
+
+<!-- STORY / WHY SECTION -->
+<section class="section bg-light-alt">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="story-image-wrap">
+          <img src="hero-banner.png" alt="Mangesh Sir teaching">
+          <div class="story-badge">
+            <div class="story-badge-icon"><i class="fa-solid fa-award"></i></div>
+            <div class="story-badge-text">Trusted by 50K+ students since 2014</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 ps-lg-5">
+        <span class="badge-tag">Why students trust us</span>
+        <h2 class="section-title mb-4">Teaching that makes you productive.</h2>
+        <div class="numbered-item">
+          <div class="num-label">01</div>
+          <div class="num-content">
+            <h4>Learn from an experienced educator</h4>
+            <p>Mangesh Sir has personally helped thousands of engineering students pass their university exams with first class and distinction grades.</p>
+          </div>
+        </div>
+        <div class="numbered-item">
+          <div class="num-label">02</div>
+          <div class="num-content">
+            <h4>Flexible learning on your schedule</h4>
+            <p>Study whenever you want. Our app lets you access video lectures, notes and practice papers at your own pace — even the night before your exam.</p>
+          </div>
+        </div>
+        <div class="numbered-item">
+          <div class="num-label">03</div>
+          <div class="num-content">
+            <h4>Affordable and accessible</h4>
+            <p>Pay only for the subjects you need. Quality engineering education shouldn't cost a fortune — and at Purple Hat, it doesn't.</p>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary-custom mt-2"><i class="fa-solid fa-graduation-cap"></i> Enroll Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ / ACCORDION -->
+<section class="section bg-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-7 text-center">
+        <span class="badge-tag">Common questions</span>
+        <h2 class="section-title">Everything you want to know about Purple Hat.</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="faq-item open" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <div class="faq-num">01</div>
+            <div class="faq-question">Who are the courses designed for?</div>
+            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">Our courses are designed for Degree and Diploma engineering students affiliated with universities in Maharashtra — especially students who need to cover their syllabus quickly before exams.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <div class="faq-num">02</div>
+            <div class="faq-question">In which language are the lectures taught?</div>
+            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">All our lectures are taught in Marathi and Hindi with English technical terms, making it very easy for Maharashtra-based students to understand complex engineering concepts.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <div class="faq-num">03</div>
+            <div class="faq-question">How do I access the course content?</div>
+            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">Download the Purple Hat app from Google Play or the Apple App Store. After enrolling, all course videos, notes, and question papers are available instantly on your phone.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <div class="faq-num">04</div>
+            <div class="faq-question">What subjects are available?</div>
+            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">We cover all major subjects across Degree Engineering (BE/B.Tech) and Diploma Engineering programs — including Mathematics, Physics, Chemistry, core branch subjects, and more.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-header">
+            <div class="faq-num">05</div>
+            <div class="faq-question">How is Purple Hat different from other coaching institutes?</div>
+            <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">Unlike traditional institutes, we focus on exam-oriented, efficient learning. Our content is precise, our language is simple (Marathi/English), and you can study anytime on your phone — no need to attend fixed classes.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- CTA BANNER -->
+<section class="cta-section text-center">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="badge-tag">Admissions Open</span>
+    <h2 class="cta-title">Start your engineering journey today.</h2>
+    <p class="cta-sub">Join 50,000+ students who trust Purple Hat Institute for exam success.</p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center">
+      <a href="contact.html" class="btn-primary-custom"><i class="fa-solid fa-graduation-cap"></i> Enroll Now</a>
+      <a href="tel:8484813498" class="btn-ghost"><i class="fa-solid fa-phone"></i> 8484813498</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (matches Home page) -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 d-flex flex-column align-items-start">
+        <div class="footer-logo"><img src="logo.png" alt="Purple Hat Institute"></div>
+        <p class="footer-desc">We provide quality engineering education in Marathi and English. Making engineering simple since 2014.</p>
+        <div class="social-links">
+          <a href="https://www.youtube.com/@PURPLEHAT" target="_blank" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/purplehatinstitute/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/purple-hat-institute-891418359/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=co.white.iebqk" target="_blank">Our App</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="footer-heading">Need Help?</div>
+        <p style="font-size:.88rem;margin-bottom:4px;color:var(--muted);">Call us directly</p>
+        <a href="tel:8484813498" style="color:var(--primary);font-size:1.1rem;font-weight:700;text-decoration:none;display:block;margin-bottom:16px;">8484813498</a>
+        <p style="font-size:.88rem;margin-bottom:8px;color:var(--muted);">Visit our centers:</p>
+        <p style="font-size:.85rem;margin-bottom:4px;color:var(--muted);"><i class="fa-solid fa-location-dot me-2" style="color:var(--primary);"></i>KBT Circle, Nashik</p>
+        <p style="font-size:.85rem;color:var(--muted);"><i class="fa-solid fa-location-dot me-2" style="color:var(--primary);"></i>Indira Nagar, Nashik</p>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">Download App</div>
+        <a href="https://play.google.com/store/apps/details?id=co.white.iebqk&pcampaignid=web_share" target="_blank" class="app-btn">
+          <i class="fa-brands fa-google-play"></i>
+          <div><div class="app-btn-label">Get it on</div><div class="app-btn-store">Google Play</div></div>
+        </a>
+        <a href="https://apps.apple.com/pt/app/purple-hat/id6670333636?l=en-GB&platform=watch" target="_blank" class="app-btn">
+          <i class="fa-brands fa-apple"></i>
+          <div><div class="app-btn-label">Download on the</div><div class="app-btn-store">App Store</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="footer-bottom-text mb-0">&copy; 2025 Purple Hat Institute. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+          <a href="index.html" class="footer-bottom a">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html" style="margin-right:0;">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/918484813498?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Purple%20Hat%20courses." target="_blank" class="whatsapp-btn" rel="noopener noreferrer">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Sticky header
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileOverlay');
+  const closeBtn = document.getElementById('mobileClose');
+  function openMenu() { mobileMenu.classList.add('open'); overlay.classList.add('open'); mobileMenu.style.display='block'; overlay.style.display='block'; }
+  function closeMenu() { mobileMenu.classList.remove('open'); overlay.classList.remove('open'); setTimeout(()=>{ mobileMenu.style.display='none'; overlay.style.display='none'; }, 350); }
+  hamburger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
+  // Animate on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.feature-box, .numbered-item, .faq-item, .stat-item').forEach(el => {
+    el.style.opacity = '0'; el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity .6s ease, transform .6s ease';
+    observer.observe(el);
+  });
+</script>
+
+<div id="ph-overlay"></div>
+<script>
+  (function(){
+    var ov = document.getElementById('ph-overlay');
+    if(ov){
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          ov.style.opacity = '0';
+          ov.style.pointerEvents = 'none';
+        });
+      });
+    }
+    document.addEventListener('click', function(e){
+      var link = e.target.closest('a[href]');
+      if(!link) return;
+      var href = link.getAttribute('href');
+      if(!href || href.charAt(0)==='#' || href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('javascript') || link.getAttribute('target')==='_blank') return;
+      e.preventDefault();
+      var ov2 = document.getElementById('ph-overlay');
+      if(ov2){ ov2.style.transition='opacity .3s ease'; ov2.style.opacity='1'; ov2.style.pointerEvents='all'; }
+      setTimeout(function(){ window.location.href = href; }, 320);
+    });
+  })();
+</script>
+</body>
+</html>
