@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Purple Hat Institute | Engineering झाली सोपी</title>
+<meta name="description" content="Purple Hat Institute – Engineering झाली सोपी. Expert faculty, 50K+ students, proven results. Degree & Diploma coaching in Nashik.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/atropos@2/atropos.min.css">
+<style>
+  :root {
+    --primary: #9900CC;
+    --primary-light: #ffffff;
+    --dark: #2D0050;
+    --dark-muted: #1A0035;
+    --muted: #6B4D8A;
+    --light-bg: #f5f5f5;
+    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Space Grotesk', sans-serif;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); color: var(--dark); background: var(--primary-light); overflow-x: hidden; }
+  h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
+
+  /* HEADER */
+  .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: transparent; padding: 0; box-shadow: none; transition: background .4s, box-shadow .4s, backdrop-filter .4s; }
+  .site-header.scrolled { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); box-shadow: 0 4px 30px rgba(153,0,204,0.1); border-bottom: 1px solid rgba(255,255,255,0.3); }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 45px; }
+  .header-logo { flex: 0 0 auto; display: flex; align-items: center; }
+  .header-logo img { height: 120px; width: auto; max-width: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; transition: height 0.3s ease; }
+  .nav-links { display: flex; list-style: none; gap: 32px; margin: 0; padding: 0; flex: 1 1 auto; justify-content: center; align-items: center; }
+  .nav-links a { font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: .9rem; color: var(--dark); text-decoration: none; transition: color .25s; padding: 6px 0; }
+  .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+  .header-phone-wrap { flex: 0 0 auto; display: flex; align-items: center; }
+  .header-phone { color: var(--primary); font-weight: 700; font-size: .85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: opacity .2s; }
+  .header-phone:hover { opacity: .8; color: var(--primary); }
+  .hamburger { background: none; border: none; color: var(--dark); font-size: 1.4rem; cursor: pointer; display: none; }
+
+  /* HERO */
+  .hero-section { min-height: 100vh; padding-top: 80px; padding-bottom: 20px; background: var(--primary-light); display: flex; align-items: center; position: relative; }
+  .hero-blob { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; will-change: transform; transform: translateZ(0); }
+  .hero-blob-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(153,0,204,.18) 0%, transparent 70%); top: -150px; right: -100px; animation: blobFloat 8s ease-in-out infinite; }
+  .hero-blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(153,0,204,.12) 0%, transparent 70%); bottom: -80px; left: -80px; animation: blobFloat 10s ease-in-out infinite reverse; }
+  .hero-blob-3 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(45,0,80,.1) 0%, transparent 70%); top: 40%; left: 38%; animation: blobFloat 12s ease-in-out infinite; }
+  @keyframes blobFloat { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(30px,-20px) scale(1.05)} 66%{transform:translate(-20px,15px) scale(.95)} }
+  .hero-content { position: relative; z-index: 1; padding: 20px 0; }
+  .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(153,0,204,.1); border: 1px solid rgba(153,0,204,.2); color: var(--primary); font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 6px 16px; border-radius: 50px; margin-bottom: 24px; animation: fadeUp .6s ease both; }
+  .hero-title { font-family: var(--font-heading); font-size: clamp(2.6rem, 5.5vw, 4.2rem); font-weight: 800; color: var(--dark); line-height: 1.1; margin-bottom: 22px; animation: fadeUp .6s .15s ease both; }
+  .hero-title .accent { color: var(--primary); }
+  .hero-subtitle { font-size: 1.05rem; color: var(--muted); max-width: 500px; line-height: 1.75; margin-bottom: 32px; animation: fadeUp .6s .25s ease both; }
+  .hero-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 36px; animation: fadeUp .6s .35s ease both; }
+  .hero-pill { display: inline-flex; align-items: center; gap: 6px; background: #fff; border: 1px solid rgba(153,0,204,.15); color: var(--dark); font-size: .82rem; font-weight: 600; padding: 6px 14px; border-radius: 50px; box-shadow: 0 2px 8px rgba(153,0,204,.06); }
+  .hero-pill i { color: var(--primary); font-size: .8rem; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; animation: fadeUp .6s .45s ease both; }
+  .btn-primary-custom { background: var(--primary); color: #fff; font-weight: 700; font-size: .95rem; padding: 14px 36px; border-radius: 50px; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform .2s, box-shadow .2s; cursor: pointer; }
+  .btn-primary-custom:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(153,0,204,.4); color: #fff; }
+  .btn-ghost { background: transparent; color: var(--dark); font-weight: 600; font-size: .95rem; padding: 14px 36px; border-radius: 50px; border: 2px solid rgba(45,0,80,.2); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all .2s; }
+  .btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+  .hero-img-col { position: relative; display: flex; justify-content: flex-end; align-items: flex-end; z-index: 2; }
+  .hero-img-wrap { position: relative; display: inline-block; animation: fadeUp .8s .2s ease both; }
+  .hero-main-img { width: 160%; max-width: none; margin-left: -30%; margin-bottom: -20px; object-fit: contain; object-position: bottom center; transform: translateZ(0); }
+  .floating-image { will-change: transform; }
+  .hero-stat-card { position: absolute; background: #fff; border-radius: 14px; padding: 14px 18px; box-shadow: 0 10px 30px rgba(153,0,204,.15); display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+  .hero-stat-card-1 { top: 20%; left: -30px; animation: scaleIn .6s .6s ease both; }
+  .hero-stat-card-2 { bottom: 25%; right: -20px; animation: scaleIn .6s .8s ease both; }
+  .hero-stat-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(153,0,204,.1); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.1rem; flex-shrink: 0; }
+  .hero-stat-num { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: var(--dark); line-height: 1; }
+  .hero-stat-lbl { font-size: .72rem; color: var(--muted); margin-top: 2px; }
+  @keyframes scaleIn { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+  /* COMMON */
+  .section { padding: 90px 0; }
+  .badge-tag { display: inline-block; font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #fff; background: var(--primary); padding: 5px 14px; border-radius: 50px; margin-bottom: 18px; }
+  .section-title { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; line-height: 1.2; color: var(--dark); }
+  .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.8; margin-top: 14px; }
+
+  /* ANIMATED STAT BOXES */
+  .stat-box { background: #fff; border-radius: 20px; padding: 36px 28px; position: relative; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,.07); border: 1px solid rgba(153,0,204,.12); transition: transform .35s, box-shadow .35s, opacity .6s, margin .6s; opacity: 0; transform: translateY(32px); }
+  .stat-box.visible { opacity: 1; transform: translateY(0); }
+  .stat-box:hover { transform: translateY(-8px) !important; box-shadow: 0 12px 36px rgba(0,0,0,.12); border-color: var(--primary); }
+  .stat-box-glow { display: none; }
+  .stat-box-icon { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, rgba(153,0,204,.12), rgba(153,0,204,.05)); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; position: relative; z-index: 1; }
+  .stat-box-num { font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: var(--primary); line-height: 1; position: relative; z-index: 1; }
+  .stat-box-label { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); margin-top: 8px; position: relative; z-index: 1; }
+  .stat-box-desc { font-size: .88rem; color: var(--muted); line-height: 1.6; margin-top: 10px; position: relative; z-index: 1; }
+  .stat-box::before { display: none; }
+
+  /* WHY CARDS */
+  .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .why-card { display: flex; gap: 18px; align-items: flex-start; background: #fff; border-radius: 16px; padding: 28px 24px; border: 1px solid rgba(153,0,204,.12); border-left: 4px solid var(--primary); box-shadow: 0 2px 16px rgba(0,0,0,.07); transition: transform .3s, box-shadow .3s, opacity .6s; opacity: 0; transform: translateY(24px); }
+  .why-card.visible { opacity: 1; transform: translateY(0); }
+  .why-card:hover { transform: translateY(-5px) !important; box-shadow: 0 12px 36px rgba(0,0,0,.12); border-color: var(--primary); }
+  .why-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(153,0,204,.08); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--primary); flex-shrink: 0; }
+  .why-title { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .why-desc { font-size: .88rem; color: var(--muted); line-height: 1.65; margin: 0; }
+
+  /* COURSE CARDS */
+  .course-card { background: #fff; border-radius: 18px; overflow: hidden; border: 1px solid rgba(153,0,204,.12); box-shadow: 0 2px 16px rgba(0,0,0,.07); transition: transform .3s, box-shadow .3s, border-color .3s, opacity .6s; height: 100%; opacity: 0; transform: translateY(24px); }
+  .course-card.visible { opacity: 1; transform: translateY(0); }
+  .course-card:hover { transform: translateY(-8px) !important; box-shadow: 0 16px 40px rgba(0,0,0,.12); border-color: var(--primary); }
+  .course-thumb { height: 160px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .course-thumb-bg { position: absolute; inset: 0; }
+  .course-thumb-icon { font-size: 3rem; position: relative; z-index: 1; }
+  .course-badge-top { position: absolute; top: 14px; right: 14px; z-index: 2; background: rgba(255,255,255,.9); color: var(--primary); font-size: .7rem; font-weight: 700; padding: 3px 10px; border-radius: 50px; text-transform: uppercase; letter-spacing: .5px; }
+  .course-body { padding: 22px; }
+  .course-title { font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .course-desc { font-size: .85rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+  .course-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-top: 14px; border-top: 1px solid rgba(153,0,204,.08); }
+  .course-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+  .course-pill { font-size: .72rem; font-weight: 600; padding: 3px 10px; border-radius: 50px; background: rgba(153,0,204,.08); color: var(--primary); }
+  .course-enroll { font-size: .8rem; font-weight: 700; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 5px; transition: gap .2s; white-space: nowrap; }
+  .course-enroll:hover { gap: 9px; color: var(--dark); }
+
+  /* MARQUEE */
+  .marquee-wrap { background: #EDD9FF; overflow: hidden; padding: 22px 0; display: flex; white-space: nowrap; }
+  .marquee-track { display: inline-flex; animation: marquee 28s linear infinite; will-change: transform; }
+  .marquee-item { display: inline-flex; align-items: center; gap: 12px; font-family: var(--font-heading); font-size: 1.05rem; font-weight: 600; color: var(--muted); padding: 0 40px; white-space: nowrap; }
+  .marquee-item .dot { color: var(--primary); font-size: 1.4rem; }
+  .marquee-num { color: var(--dark); font-weight: 800; font-size: 1.2rem; }
+  @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+  /* REEL TESTIMONIAL SECTION */
+  .video-section { position:relative; overflow:hidden; background:#EDD9FF; padding:100px 0; }
+  .video-section::before { content:''; position:absolute; width:700px; height:700px; background:radial-gradient(circle,rgba(153,0,204,.12) 0%,transparent 65%); top:-200px; left:-200px; pointer-events:none; }
+  .video-section::after { content:''; position:absolute; width:500px; height:500px; background:radial-gradient(circle,rgba(153,0,204,.12) 0%,transparent 65%); bottom:-150px; right:-150px; pointer-events:none; }
+  .video-section .section-title { color: var(--dark); }
+  .video-section .section-sub { color: var(--muted); }
+  .video-section .badge-tag { background: var(--primary); color: #fff; border: none; }
+
+  /* 2-Column Layout */
+  .testimonial-grid { display: grid; grid-template-columns: 340px 1fr; gap: 60px; align-items: center; max-width: 1140px; margin: 0 auto; position: relative; z-index: 2; }
+  
+  /* Reel outer wrapper */
+  .reel-outer { width: 100%; max-width: 340px; margin: 0 auto; padding: 0; position: relative; }
+
+  /* Glow frame wrapper - Mobile Phone Style */
+  .reel-frame-wrap { position:relative; border-radius:32px; background:#111; box-shadow:0 30px 60px rgba(153,0,204,.2), 0 10px 25px rgba(0,0,0,.4); padding: 8px; border: 2px solid rgba(255,255,255,0.2); border-top-color: rgba(255,255,255,0.5); border-left-color: rgba(255,255,255,0.5); }
+  .reel-frame-wrap::before { content:''; position:absolute; top:14px; left:50%; transform:translateX(-50%); width:45px; height:5px; background:rgba(255,255,255,0.2); border-radius:10px; z-index:25; }
+
+  /* Inner reel frame */
+  .reel-frame { position:relative; border-radius:24px; background:#000; overflow: hidden; }
+
+  /* Progress bar */
+  .reel-progress-bar { position:absolute; top:0; left:0; width:0%; height:4px; background:linear-gradient(90deg,#9900CC,#E8D0FF); z-index:10; border-radius:0 4px 4px 0; box-shadow:0 0 8px rgba(153,0,204,.7); }
+
+  /* Slide track — Vertical 9:16 Aspect Ratio */
+  .reel-track { position:relative; padding-bottom:177.77%; height:0; overflow:hidden; border-radius:24px; background: #000; }
+
+  /* Individual slides */
+  .reel-slide { position:absolute; top:0; left:0; width:100%; height:100%; opacity:0; transform:translateX(105%); transition:transform .6s cubic-bezier(.25,.46,.45,.94), opacity .6s cubic-bezier(.25,.46,.45,.94); pointer-events:none; will-change:transform,opacity; }
+  .reel-slide.active { opacity:1; transform:translateX(0); pointer-events:all; }
+  .reel-slide.exit-left { opacity:0; transform:translateX(-105%); }
+  .reel-slide.exit-right { opacity:0; transform:translateX(105%); }
+  .reel-slide iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+
+  /* Slide title overlay */
+  .reel-label { position:absolute; bottom:0; left:0; right:0; z-index:8; padding:60px 20px 20px; background:linear-gradient(to top,rgba(0,0,0,.9) 0%,transparent 100%); pointer-events:none; opacity:0; transition:opacity .45s; }
+  .reel-slide.active .reel-label { opacity:1; transition-delay:.35s; }
+  .reel-label-title { color:#fff; font-size:1rem; font-weight:700; letter-spacing:.2px; line-height: 1.3; }
+  .reel-label-sub { color:#E8D0FF; font-size:.8rem; margin-top:4px; opacity:.9; }
+
+  /* Slide counter top-right */
+  .reel-counter { position:absolute; top:16px; right:16px; z-index:15; background:rgba(0,0,0,.6); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.2); border-radius:20px; padding:5px 12px; color:#fff; font-size:.75rem; font-weight:700; letter-spacing:.5px; }
+
+  /* Mute toggle bottom-right */
+  .reel-mute-btn { position:absolute; bottom:16px; right:16px; z-index:15; width:40px; height:40px; border-radius:50%; background:rgba(0,0,0,.6); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.2); color:#fff; font-size:.95rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all .25s; }
+  .reel-mute-btn:hover { background:rgba(153,0,204,.8); border-color:rgba(153,0,204,.9); box-shadow:0 0 16px rgba(153,0,204,.6); }
+
+  /* Nav arrows — always visible, outside the frame */
+  .reel-nav-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:20; width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,.9); border:2px solid #fff; color:var(--primary); font-size:1.1rem; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 15px rgba(0,0,0,.2); transition:all .3s cubic-bezier(.4,0,.2,1); }
+  .reel-nav-btn:hover { background:var(--primary); color:#fff; border-color:var(--primary); box-shadow:0 6px 20px rgba(153,0,204,.4); transform:translateY(-50%) scale(1.1); }
+  .reel-nav-prev { left:-24px; }
+  .reel-nav-next { right:-24px; }
+
+  /* Keyboard hint */
+  .reel-key-hint { text-align:center; margin-top:14px; color:var(--muted); font-size:.78rem; letter-spacing:.5px; }
+  .reel-key-hint kbd { background:rgba(153,0,204,.1); border:1px solid rgba(153,0,204,.2); border-radius:6px; padding:2px 8px; font-size:.72rem; color:var(--dark); font-weight: 600; }
+
+  /* Dots */
+  .reel-dots { display:flex; justify-content:center; gap:8px; margin-top:20px; }
+  .reel-dot { width:8px; height:8px; border-radius:50%; background:rgba(153,0,204,.2); cursor:pointer; transition:all .35s cubic-bezier(.4,0,.2,1); }
+  .reel-dot.active { background:#9900CC; width:28px; border-radius:4px; box-shadow:0 0 12px rgba(153,0,204,.75); }
+
+  /* Wall of Love Right Column */
+  .wol-content { padding-left: 20px; }
+  .wol-heading { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; color: var(--dark); line-height: 1.1; margin-bottom: 20px; }
+  .wol-heading span { color: var(--primary); }
+  .wol-desc { font-size: 1.1rem; color: var(--muted); line-height: 1.6; margin-bottom: 30px; max-width: 500px; }
+  .wol-cards { position: relative; height: 380px; margin-bottom: 30px; }
+  
+  .wol-card { position: absolute; background: #fff; border-radius: 18px; padding: 22px 28px; box-shadow: 0 15px 35px rgba(153,0,204,.08); border: 1px solid rgba(153,0,204,.1); width: 100%; max-width: 420px; animation: floatCard 6s ease-in-out infinite; transition: transform .3s, box-shadow .3s; cursor: default; }
+  .wol-card:hover { transform: translateY(-5px) !important; box-shadow: 0 20px 45px rgba(153,0,204,.15); z-index: 10 !important; animation-play-state: paused; }
+  
+  .wol-card-1 { top: 0; left: 0; z-index: 2; }
+  .wol-card-2 { top: 110px; right: 0; z-index: 1; animation-delay: 2s; background: linear-gradient(135deg, #fff, #faf5ff); border-color: rgba(153,0,204,.2); border-width: 2px; }
+  .wol-card-3 { bottom: 0; left: 40px; z-index: 3; animation-delay: 4s; }
+  
+  @keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+  
+  .wol-stars { color: #FFD700; font-size: 1rem; margin-bottom: 10px; letter-spacing: 2px; }
+  .wol-text { font-size: .95rem; font-weight: 600; color: var(--dark); line-height: 1.6; margin-bottom: 16px; }
+  .wol-author { display: flex; align-items: center; gap: 12px; }
+  .wol-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--primary); color: #fff; display: flex; align-items: center; justify-content: center; font-size: .9rem; font-weight: 700; }
+  .wol-name { font-size: .88rem; font-weight: 700; color: var(--dark); }
+  .wol-course { font-size: .75rem; color: var(--muted); }
+  
+  .wol-cta-wrap { display: flex; align-items: center; gap: 16px; margin-top: 20px; }
+  .wol-stats-badge { background: #fff; padding: 10px 18px; border-radius: 50px; font-weight: 700; color: var(--primary); border: 1px solid rgba(153,0,204,.15); box-shadow: 0 4px 15px rgba(153,0,204,.08); display: flex; align-items: center; gap: 8px; font-size: .9rem; }
+
+  @media(max-width: 991px) {
+    .testimonial-grid { grid-template-columns: 1fr; gap: 50px; }
+    .wol-content { padding-left: 0; text-align: center; }
+    .wol-desc { margin: 0 auto 30px; }
+    .wol-cards { height: auto; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+    .wol-card { position: relative; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; transform: none !important; animation: none; }
+    .wol-card:hover { transform: translateY(-5px) !important; }
+    .wol-cta-wrap { justify-content: center; flex-wrap: wrap; }
+  }
+
+  /* CTA */
+  .cta-section { background: #EDD9FF; padding: 80px 0; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; border-radius: 50%; background: var(--primary); opacity: .1; }
+  .cta-section::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 250px; height: 250px; border-radius: 50%; background: var(--primary); opacity: .07; }
+  .cta-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; color: var(--dark); margin-bottom: 12px; }
+  .cta-sub { color: var(--muted); font-size: 1rem; margin-bottom: 32px; }
+  .btn-white { background: var(--primary); color: #fff; font-weight: 700; font-size: .95rem; padding: 14px 36px; border-radius: 50px; border: none; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: transform .2s, box-shadow .2s; }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(153,0,204,.4); color: #fff; }
+  .btn-ghost-white { background: transparent; color: var(--dark); font-weight: 600; font-size: .95rem; padding: 14px 36px; border-radius: 50px; border: 2px solid rgba(45,0,80,.2); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all .2s; }
+  .btn-ghost-white:hover { border-color: var(--primary); color: var(--primary); background: rgba(153,0,204,.06); }
+
+  /* FOOTER */
+  .site-footer { background: var(--primary-light); color: var(--dark); padding: 40px 0 0; }
+  .footer-logo img { height: 100px; width: auto; max-width: 100%; object-fit: contain; mix-blend-mode: multiply; display: block; }
+  .footer-desc { font-size: .9rem; line-height: 1.8; margin: 10px 0 16px; color: var(--muted); }
+  .social-links { display: flex; gap: 10px; }
+  .social-link { width: 38px; height: 38px; border-radius: 50%; background: rgba(153,0,204,.08); display: flex; align-items: center; justify-content: center; color: var(--dark); font-size: .9rem; text-decoration: none; transition: background .2s, color .2s; }
+  .social-link:hover { background: var(--primary); color: #fff; }
+  .footer-heading { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--dark); margin-bottom: 20px; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a { color: var(--muted); font-size: .88rem; text-decoration: none; transition: color .2s; }
+  .footer-links a:hover { color: var(--primary); }
+  .app-btn { display: flex; align-items: center; gap: 12px; background: rgba(153,0,204,.06); border: 1px solid rgba(153,0,204,.12); border-radius: 10px; padding: 10px 16px; text-decoration: none; margin-bottom: 10px; transition: background .2s, border-color .2s; }
+  .app-btn:hover { background: rgba(153,0,204,.12); border-color: var(--primary); }
+  .app-btn i { font-size: 1.6rem; color: var(--dark); }
+  .app-btn-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+  .app-btn-store { font-size: .9rem; font-weight: 700; color: var(--dark); }
+  .footer-bottom { border-top: 1px solid rgba(153,0,204,.12); padding: 18px 0; margin-top: 25px; }
+  .footer-bottom-text { font-size: .82rem; color: var(--muted); }
+  .footer-bottom a { font-size: .82rem; color: var(--muted); text-decoration: none; margin-right: 16px; }
+  .footer-bottom a:hover { color: var(--primary); }
+
+  /* WHATSAPP */
+  .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; z-index: 9999; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37,211,102,.4); text-decoration: none; animation: wpulse 2s infinite; transition: transform .3s; }
+  .whatsapp-btn:hover { transform: scale(1.12); }
+  @keyframes wpulse { 0%,100%{box-shadow:0 4px 15px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 30px rgba(37,211,102,.7)} }
+
+  /* MOBILE MENU */
+  .mobile-menu { display: none; position: fixed; top: 0; right: 0; bottom: 0; width: 280px; background: var(--dark); z-index: 2000; padding: 30px 24px; transform: translateX(100%); transition: transform .35s; box-shadow: -10px 0 40px rgba(0,0,0,.3); }
+  .mobile-menu.open { transform: translateX(0); }
+  .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1999; }
+  .mobile-overlay.open { display: block; }
+  .mobile-menu-links { list-style: none; margin-top: 40px; }
+  .mobile-menu-links li { border-bottom: 1px solid rgba(255,255,255,.08); }
+  .mobile-menu-links a { display: block; padding: 16px 0; font-size: 1rem; font-weight: 600; color: rgba(255,255,255,.8); text-decoration: none; }
+  .mobile-menu-links a:hover, .mobile-menu-links a.active { color: var(--primary); }
+  .mobile-close { background: none; border: none; color: rgba(255,255,255,.6); font-size: 1.4rem; cursor: pointer; float: right; }
+
+  /* CUSTOM INTERACTIVE COURSES */
+  .branch-card { background: #fff; border-radius: 20px; padding: 32px 24px; text-align: center; cursor: pointer; border: 1px solid rgba(153,0,204,.12); box-shadow: 0 2px 16px rgba(0,0,0,.07); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; overflow: hidden; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .branch-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(153,0,204,.06), transparent); opacity: 0; transition: opacity 0.4s; }
+  .branch-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 16px 40px rgba(0,0,0,.12); border-color: var(--primary); }
+  .branch-card:hover::before { opacity: 1; }
+  .branch-icon { width: 64px; height: 64px; border-radius: 16px; background: rgba(153,0,204,.08); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--primary); margin-bottom: 20px; transition: transform 0.4s; }
+  .branch-card:hover .branch-icon { transform: scale(1.1) rotate(5deg); background: var(--primary); color: #fff; }
+  .branch-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 700; color: var(--dark); line-height: 1.3; margin-bottom: 10px; position: relative; z-index: 1; }
+  .branch-subtitle { font-size: 0.82rem; color: var(--muted); position: relative; z-index: 1; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+  
+  /* Modal Overlay */
+  .course-modal-overlay { position: fixed; inset: 0; background: rgba(15, 0, 32, 0.5); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 99999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; padding: 20px; outline: none; }
+  .course-modal-overlay.active { opacity: 1; visibility: visible; }
+  
+  .course-modal-content { background: #fff; border-radius: 24px; width: 100%; max-width: 650px; max-height: 85vh; overflow-y: auto; position: relative; padding: 40px 30px; transform: scale(0.95) translateY(30px); opacity: 0; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 30px 60px rgba(0,0,0,0.25); }
+  .course-modal-overlay.active .course-modal-content { transform: scale(1) translateY(0); opacity: 1; }
+  .course-modal-content::-webkit-scrollbar { width: 6px; }
+  .course-modal-content::-webkit-scrollbar-thumb { background: rgba(153,0,204,.2); border-radius: 10px; }
+  
+  .course-modal-close { position: absolute; top: 15px; right: 15px; width: 40px; height: 40px; border-radius: 50%; background: rgba(153,0,204,.08); border: none; color: var(--dark); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; z-index: 10; }
+  .course-modal-close:hover { background: var(--primary); color: #fff; transform: rotate(90deg); }
+  
+  .course-modal-header { text-align: center; margin-bottom: 30px; }
+  .course-modal-title { font-size: 1.6rem; font-weight: 800; color: var(--dark); line-height: 1.3; margin-top: 15px; }
+  
+  .course-list-wrap { display: flex; flex-direction: column; gap: 10px; }
+  .course-item-btn { display: flex; align-items: center; justify-content: space-between; background: #f8f5fb; border: 1px solid rgba(153,0,204,.08); padding: 15px 20px; border-radius: 14px; width: 100%; text-align: left; cursor: pointer; transition: all 0.3s; opacity: 0; transform: translateY(20px); }
+  .course-item-btn.animate-in { animation: fadeInUpStagger 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  @keyframes fadeInUpStagger { to { opacity: 1; transform: translateY(0); } }
+  
+  .course-item-btn:hover { background: #fff; border-color: var(--primary); box-shadow: 0 10px 25px rgba(153,0,204,.12); transform: translateX(5px) !important; }
+  .course-item-name { font-weight: 600; font-size: .95rem; color: var(--dark); display: flex; align-items: center; gap: 12px; }
+  .course-item-name i { color: var(--primary); font-size: 0.75rem; }
+  .course-item-arrow { color: var(--muted); transition: transform 0.3s, color 0.3s; font-size: 0.9rem; }
+  .course-item-btn:hover .course-item-arrow { transform: translateX(4px); color: var(--primary); }
+  
+  /* Detail View */
+  #courseDetailView { animation: fadeIn 0.4s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+  .course-modal-back { background: none; border: none; font-weight: 600; color: var(--muted); font-size: 0.95rem; display: flex; align-items: center; gap: 8px; cursor: pointer; margin-bottom: 30px; transition: color 0.2s; padding: 0; }
+  .course-modal-back:hover { color: var(--primary); }
+  .course-detail-card { text-align: center; padding: 10px; }
+  .course-detail-icon { width: 80px; height: 80px; border-radius: 20px; background: linear-gradient(135deg, rgba(153,0,204,.15), rgba(153,0,204,.05)); display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: var(--primary); margin: 0 auto 24px; animation: bounceFloat 3s infinite ease-in-out; }
+  @keyframes bounceFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .course-detail-title { font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; line-height: 1.3; font-family: var(--font-heading); }
+  .course-detail-desc { font-size: 1rem; color: var(--muted); line-height: 1.6; max-width: 400px; margin: 0 auto; }
+
+  /* VIDEO DEMO MODAL — compact white card */
+  .video-demo-overlay { position: fixed; inset: 0; background: rgba(15,0,32,0.55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 9999999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.4s ease, visibility 0.4s ease; padding: 20px; }
+  .video-demo-overlay.active { opacity: 1; visibility: visible; }
+  .video-demo-card { background: #fff; border-radius: 24px; width: 100%; max-width: 560px; padding: 32px 28px; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.2); transform: scale(0.95) translateY(20px); opacity: 0; transition: all 0.45s cubic-bezier(0.16,1,0.3,1); }
+  .video-demo-overlay.active .video-demo-card { transform: scale(1) translateY(0); opacity: 1; }
+  .video-demo-close { position: absolute; top: 14px; right: 14px; width: 38px; height: 38px; border-radius: 50%; background: rgba(153,0,204,.08); border: none; color: var(--dark); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; }
+  .video-demo-close:hover { background: var(--primary); color: #fff; transform: rotate(90deg); }
+  .video-demo-frame { position: relative; padding-bottom: 56.25%; height: 0; border-radius: 14px; overflow: hidden; background: #f0ebf7; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(153,0,204,.1); }
+  .video-demo-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+  .video-demo-title { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+  .video-demo-topic { font-size: 0.78rem; color: var(--primary); font-weight: 600; margin-bottom: 18px; display: flex; align-items: center; gap: 5px; }
+  /* App prompt — shown after video ends, replaces frame content */
+  .app-prompt-overlay { position: absolute; inset: 0; background: #fff; border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 20px; text-align: center; opacity: 0; visibility: hidden; transition: opacity 0.45s ease, visibility 0.45s ease; z-index: 10; }
+  .app-prompt-overlay.show { opacity: 1; visibility: visible; }
+  .app-prompt-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(153,0,204,.08); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--primary); margin: 0 auto 12px; animation: bounceFloat 3s infinite ease-in-out; }
+  .app-prompt-heading { font-family: var(--font-heading); font-size: 1rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; line-height: 1.3; }
+  .app-prompt-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; max-width: 320px; margin: 0 auto 16px; }
+  .app-prompt-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+  .app-prompt-btn { display: flex; align-items: center; gap: 8px; background: rgba(153,0,204,.06); border: 1px solid rgba(153,0,204,.15); border-radius: 10px; padding: 9px 16px; text-decoration: none; transition: all 0.3s; color: var(--dark); }
+  .app-prompt-btn:hover { background: var(--primary); border-color: var(--primary); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(153,0,204,.3); }
+  .app-prompt-btn i { font-size: 1.3rem; }
+  .app-prompt-btn-label { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .app-prompt-btn:hover .app-prompt-btn-label { color: rgba(255,255,255,0.75); }
+  .app-prompt-btn-store { font-size: 0.85rem; font-weight: 700; }
+  .app-prompt-replay { background: none; border: none; color: var(--muted); font-size: 0.75rem; cursor: pointer; margin-top: 12px; transition: color 0.2s; display: inline-flex; align-items: center; gap: 5px; }
+  .app-prompt-replay:hover { color: var(--primary); }
+
+  /* RESPONSIVE */
+  @media(max-width:991px) {
+    .nav-links, .header-phone-wrap { display: none !important; }
+    .hamburger { display: block; }
+    .header-inner { padding: 0 15px; }
+    .header-logo img { height: 80px; width: auto; }
+    .hero-img-col { margin-top: 40px; display: flex; justify-content: center; align-items: center; }
+    .hero-main-img { width: 100%; max-width: 400px; margin-left: 0; margin-bottom: 0; }
+    .why-grid { grid-template-columns: repeat(2,1fr); }
+  }
+  @media(max-width:767px) {
+    .section { padding: 60px 0; }
+    .hero-content { padding: 40px 0 20px; }
+    .hero-stat-card { display: none; }
+    .why-grid { grid-template-columns: 1fr; }
+    .course-modal-content { padding: 30px 20px; }
+    .app-btn { width: 100%; justify-content: center; }
+  }
+
+  @media(min-width:1400px) {
+    .container { max-width: 1320px; }
+  }
+  @media(min-width:1600px) {
+    .container { max-width: 1540px; }
+    .hero-main-img { width: 140%; margin-left: -20%; }
+    .hero-title { font-size: 5rem; }
+  }
+  @media(min-width:1920px) {
+    .container { max-width: 1720px; }
+    .hero-main-img { width: 125%; margin-left: -12%; }
+    .hero-title { font-size: 5.5rem; }
+  }
+
+  /* PAGE TRANSITION */
+  #ph-overlay {
+    position: fixed; inset: 0;
+    background: #fff;
+    z-index: 999999; pointer-events: none;
+    opacity: 1; transition: opacity .5s ease;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+  }
+  .ph-ov-blob {
+    position: absolute; border-radius: 50%; pointer-events: none;
+  }
+  .ph-ov-blob-1 {
+    width: 480px; height: 480px; top: -160px; right: -160px;
+    background: radial-gradient(circle, rgba(153,0,204,.10) 0%, transparent 70%);
+  }
+  .ph-ov-blob-2 {
+    width: 360px; height: 360px; bottom: -100px; left: -100px;
+    background: radial-gradient(circle, rgba(153,0,204,.07) 0%, transparent 70%);
+  }
+  .ph-ov-logo {
+    height: 160px; width: auto; max-width: 90vw; object-fit: contain;
+    mix-blend-mode: multiply; position: relative; z-index: 1;
+    animation: phOvPulse 1.1s ease-in-out infinite alternate;
+  }
+  @keyframes phOvPulse {
+    from { transform: scale(0.93); opacity: .75; }
+    to   { transform: scale(1.07); opacity: 1; }
+  }
+  .ph-ov-name {
+    font-family: var(--font-heading); font-size: 1rem; font-weight: 700;
+    color: var(--primary); margin-top: 14px; letter-spacing: .3px;
+    position: relative; z-index: 1; opacity: .85;
+  }
+  .ph-ov-bar {
+    width: 220px; height: 5px; margin-top: 14px;
+    background: rgba(153,0,204,.12); border-radius: 10px;
+    overflow: hidden; position: relative; z-index: 1;
+  }
+  .ph-ov-fill {
+    height: 100%; width: 0;
+    background: linear-gradient(90deg, #9900CC, #cc66ff);
+    border-radius: 10px;
+    animation: phOvLoad .42s cubic-bezier(.4,0,.2,1) forwards;
+  }
+  @keyframes phOvLoad { from { width: 0% } to { width: 100% } }
+  @media (prefers-reduced-motion: reduce) {
+    .ph-ov-logo { animation: none; }
+    .ph-ov-fill { animation: none; width: 100%; }
+  }
+
+  /* ── DEMO DISCOVERY POPUP ──────────────────────────────────── */
+  #demoPopup {
+    position: fixed;
+    bottom: 100px;
+    right: 28px;
+    z-index: 99990;
+    width: 320px;
+    background: #fff;
+    border-radius: 22px;
+    box-shadow: 0 24px 64px rgba(153,0,204,.22), 0 4px 16px rgba(0,0,0,.08);
+    border: 1px solid rgba(153,0,204,.18);
+    padding: 0;
+    overflow: hidden;
+    transform: translateY(30px) scale(0.94);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform .55s cubic-bezier(0.16,1,0.3,1), opacity .4s ease;
+  }
+  #demoPopup.show {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #demoPopup { transition: opacity .25s ease; }
+    #demoPopup.show { transform: none; }
+  }
+
+  /* Top gradient bar */
+  .dpop-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #9900CC, #cc44ff, #9900CC);
+    background-size: 200% 100%;
+    animation: dpopShimmer 2.5s linear infinite;
+  }
+  @keyframes dpopShimmer { 0%{background-position:0 0} 100%{background-position:200% 0} }
+  @media (prefers-reduced-motion: reduce) { .dpop-bar { animation: none; } }
+
+  .dpop-body { padding: 20px 20px 18px; }
+
+  /* Header row */
+  .dpop-header { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+  .dpop-play-wrap {
+    flex-shrink: 0;
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #9900CC, #cc44ff);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 0 rgba(153,0,204,.5);
+    animation: dpopPulse 2s ease-in-out infinite;
+    cursor: pointer;
+    transition: transform .2s;
+  }
+  .dpop-play-wrap:hover { transform: scale(1.08); }
+  @keyframes dpopPulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(153,0,204,.4); }
+    50% { box-shadow: 0 0 0 10px rgba(153,0,204,.0); }
+  }
+  @media (prefers-reduced-motion: reduce) { .dpop-play-wrap { animation: none; } }
+  .dpop-play-wrap i { color: #fff; font-size: 1.25rem; margin-left: 3px; }
+
+  .dpop-header-text {}
+  .dpop-label {
+    font-size: .68rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1.2px; color: var(--primary); margin-bottom: 3px;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .dpop-label::before {
+    content: '';
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--primary);
+    animation: dpopBlink 1.2s ease-in-out infinite;
+  }
+  @keyframes dpopBlink { 0%,100%{opacity:1} 50%{opacity:.25} }
+  @media (prefers-reduced-motion: reduce) { .dpop-label::before { animation: none; } }
+
+  .dpop-title {
+    font-family: var(--font-heading);
+    font-size: 1rem; font-weight: 800; color: var(--dark); line-height: 1.3;
+  }
+
+  .dpop-desc {
+    font-size: .82rem; color: var(--muted); line-height: 1.6; margin-bottom: 14px;
+  }
+
+  /* Stats row */
+  .dpop-stats {
+    display: flex; gap: 10px; margin-bottom: 14px;
+  }
+  .dpop-stat {
+    flex: 1; background: rgba(153,0,204,.05);
+    border: 1px solid rgba(153,0,204,.1);
+    border-radius: 10px; padding: 8px 6px; text-align: center;
+  }
+  .dpop-stat-num { font-family: var(--font-heading); font-size: .95rem; font-weight: 800; color: var(--primary); }
+  .dpop-stat-lbl { font-size: .62rem; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-top: 1px; }
+
+  /* Feature pills */
+  .dpop-pills {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+  }
+  .dpop-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: rgba(153,0,204,.07); border: 1px solid rgba(153,0,204,.12);
+    border-radius: 50px; padding: 4px 10px;
+    font-size: .7rem; font-weight: 600; color: var(--dark);
+  }
+  .dpop-pill i { color: var(--primary); font-size: .65rem; }
+
+  /* CTA button */
+  .dpop-cta {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    width: 100%; padding: 12px;
+    background: linear-gradient(135deg, #9900CC, #cc44ff);
+    color: #fff; font-weight: 700; font-size: .88rem;
+    border: none; border-radius: 12px; cursor: pointer;
+    font-family: var(--font-heading);
+    transition: transform .2s, box-shadow .2s;
+    text-decoration: none;
+  }
+  .dpop-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(153,0,204,.4); color: #fff; }
+
+  /* Dismiss */
+  .dpop-dismiss {
+    display: block; text-align: center; font-size: .72rem;
+    color: var(--muted); margin-top: 10px; cursor: pointer;
+    background: none; border: none; width: 100%;
+    transition: color .2s;
+  }
+  .dpop-dismiss:hover { color: var(--dark); }
+
+  /* Close X */
+  .dpop-close {
+    position: absolute; top: 12px; right: 12px;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(153,0,204,.08); border: none;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--muted); font-size: .75rem; cursor: pointer;
+    transition: background .2s, color .2s, transform .2s;
+  }
+  .dpop-close:hover { background: var(--primary); color: #fff; transform: rotate(90deg); }
+
+  /* Mobile adjustments */
+  @media (max-width: 480px) {
+    #demoPopup { width: calc(100vw - 24px); right: 12px; bottom: 88px; }
+    .dpop-body { padding: 16px 16px 14px; }
+    .dpop-stats { gap: 6px; }
+    .dpop-pills { gap: 4px; }
+    .dpop-pill { font-size: .65rem; padding: 3px 8px; }
+  }
+  @media (max-width: 360px) {
+    .dpop-title { font-size: .88rem; }
+    .dpop-desc { font-size: .78rem; }
+    .dpop-stat-num { font-size: .82rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="header-logo"><img src="logo.png" alt="Purple Hat Institute"></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <div class="header-phone-wrap">
+      <a href="tel:8484813498" class="header-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#9900CC"><path d="M7.10986 0.999969C7.83429 0.995236 8.53601 1.25306 9.08545 1.72556C9.5683 2.14084 9.90546 2.69704 10.0503 3.31247L10.1001 3.58005L10.1011 3.58884L10.1499 3.92087C10.2737 4.69064 10.473 5.44666 10.7456 6.1777L10.814 6.38181C10.9558 6.86073 10.9762 7.36862 10.8716 7.85934C10.752 8.4202 10.474 8.93494 10.0708 9.34274L9.35107 10.0625C10.5269 11.9073 12.0922 13.4715 13.937 14.6474L14.6528 13.9326L14.8149 13.7832C15.1942 13.4585 15.6496 13.2326 16.1401 13.1279C16.7 13.0085 17.2828 13.052 17.8188 13.2529H17.8198C18.5518 13.526 19.3088 13.7266 20.0796 13.8506L20.4106 13.8984L20.6899 13.9502C21.3118 14.097 21.8734 14.4395 22.2896 14.9306C22.7598 15.4857 23.0105 16.193 22.9985 16.9199H22.9995V19.916L22.9966 20.0722C22.9791 20.4365 22.895 20.7949 22.7485 21.1299C22.5812 21.5126 22.3356 21.8562 22.0278 22.1386C21.7202 22.4209 21.3569 22.6357 20.9614 22.7695C20.6153 22.8866 20.2505 22.9396 19.8862 22.9258L19.73 22.916C16.4791 22.5627 13.374 21.4584 10.646 19.6894V19.6884C8.10952 18.075 5.95855 15.9239 4.34619 13.3867V13.3857C2.57367 10.6469 1.47 7.52929 1.12549 4.28513L1.12354 4.2695C1.08614 3.85488 1.13616 3.4365 1.26904 3.04196C1.40198 2.64754 1.6154 2.28493 1.896 1.97751C2.17677 1.66996 2.51897 1.42409 2.8999 1.25583C3.28076 1.08765 3.69255 1.00038 4.10889 0.999969H7.10986Z"></path></svg>
+        <span>8484813498</span>
+      </a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
+  <div style="margin-top:10px;"><img src="logo.png" alt="Purple Hat" style="height:60px;width:auto;max-width:200px;object-fit:contain;"></div>
+  <ul class="mobile-menu-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <a href="tel:8484813498" class="btn-primary-custom mt-4 w-100 justify-content-center"><i class="fa-solid fa-phone"></i> 8484813498</a>
+</div>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="hero-content">
+          <div class="hero-eyebrow"><i class="fa-solid fa-graduation-cap"></i> Trusted by 50,000+ Engineering Students</div>
+          <h1 class="hero-title">
+            Engineering<div style="height:12px;"></div>
+            <span class="accent">झाली सोपी.</span><br>
+            <span style="font-size:55%;color:var(--muted);font-weight:600;">Learn. Practice. Clear.</span>
+          </h1>
+          <p class="hero-subtitle">Purple Hat Institute helps Degree &amp; Diploma engineering students crack university exams with confidence. Expert faculty, simple language, proven results — since 2014.</p>
+          <div class="hero-pills">
+            <span class="hero-pill"><i class="fa-solid fa-check-circle"></i> Learn in Marathi &amp; English</span>
+            <span class="hero-pill"><i class="fa-solid fa-check-circle"></i> Degree &amp; Diploma Both</span>
+            <span class="hero-pill"><i class="fa-solid fa-check-circle"></i> Study Anytime on App</span>
+            <span class="hero-pill"><i class="fa-solid fa-check-circle"></i> 95% Pass Rate</span>
+          </div>
+          <div class="hero-ctas">
+            <a href="contact.html" class="btn-primary-custom"><i class="fa-solid fa-graduation-cap"></i> Enroll Now — Free Demo</a>
+            <a href="tel:8484813498" class="btn-ghost"><i class="fa-solid fa-phone"></i> Call Us</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-img-col">
+        <div class="hero-img-wrap">
+          <div class="atropos my-atropos">
+            <div class="atropos-scale">
+              <div class="atropos-rotate">
+                <div class="atropos-inner" style="overflow: visible;">
+                  <img src="new-hero-image.png" alt="Engineering Student – Purple Hat Institute" class="hero-main-img floating-image" data-atropos-offset="0">
+                  <div class="hero-stat-card hero-stat-card-1" data-atropos-offset="5">
+                    <div class="hero-stat-icon"><i class="fa-solid fa-users"></i></div>
+                    <div><div class="hero-stat-num">50K+</div><div class="hero-stat-lbl">Students Enrolled</div></div>
+                  </div>
+                  <div class="hero-stat-card hero-stat-card-2" data-atropos-offset="8">
+                    <div class="hero-stat-icon"><i class="fa-solid fa-star"></i></div>
+                    <div><div class="hero-stat-num">4.8 ★</div><div class="hero-stat-lbl">App Rating</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE COURSES (INTERACTIVE) -->
+<section class="section" style="background:var(--light-bg); position: relative; overflow: hidden;" id="explore-courses">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-7">
+        <span class="badge-tag">Courses</span>
+        <h2 class="section-title">Explore Our Courses</h2>
+        <p class="section-sub">Subject-wise modules for every semester. All explained in simple language with exam-focused content.</p>
+      </div>
+    </div>
+    
+    <!-- BRANCHES GRID -->
+    <div class="row g-4 justify-content-center" id="branchesGrid">
+      <!-- Generated by JS -->
+    </div>
+  </div>
+
+  <!-- COURSE MODAL OVERLAY -->
+  <div class="course-modal-overlay" id="courseModalOverlay">
+    <div class="course-modal-content" id="courseModalContent">
+      <button class="course-modal-close" id="courseModalClose"><i class="fa-solid fa-xmark"></i></button>
+      
+      <!-- List View -->
+      <div id="courseListView">
+        <div class="course-modal-header">
+          <span class="badge-tag" id="modalBranchBadge">Branch</span>
+          <h3 class="course-modal-title" id="modalBranchTitle">Program Title</h3>
+        </div>
+        <div class="course-list-wrap" id="courseListWrap">
+          <!-- Courses injected here with animation delays -->
+        </div>
+      </div>
+
+      <!-- Detail View (App Prompt) -->
+      <div id="courseDetailView" style="display: none;">
+        <button class="course-modal-back" id="courseModalBack"><i class="fa-solid fa-arrow-left"></i> Back to list</button>
+        <div class="course-detail-card">
+          <div class="course-detail-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h4 class="course-detail-title" id="detailCourseTitle">Course Title</h4>
+          <p class="course-detail-desc">You can find this complete course with video lectures, notes, and MCQs directly inside our mobile app!</p>
+          <div class="mt-4 d-flex justify-content-center gap-3 flex-wrap">
+            <a href="https://play.google.com/store/apps/details?id=co.white.iebqk&pcampaignid=web_share" target="_blank" class="app-btn m-0">
+              <i class="fa-brands fa-google-play"></i>
+              <div><div class="app-btn-label">Get it on</div><div class="app-btn-store">Google Play</div></div>
+            </a>
+            <a href="https://apps.apple.com/pt/app/purple-hat/id6670333636?l=en-GB&platform=watch" target="_blank" class="app-btn m-0">
+              <i class="fa-brands fa-apple"></i>
+              <div><div class="app-btn-label">Download on the</div><div class="app-btn-store">App Store</div></div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO DEMO MODAL -->
+<div class="video-demo-overlay" id="videoDemoOverlay">
+  <div class="video-demo-card">
+    <button class="video-demo-close" id="videoDemoClose" aria-label="Close video"><i class="fa-solid fa-xmark"></i></button>
+    <div class="video-demo-title" id="videoDemoTitle">Demo Video</div>
+    <div class="video-demo-topic" id="videoDemoTopic"></div>
+    <div class="video-demo-frame" id="videoDemoFrame">
+      <div id="ytPlayerContainer" style="position:absolute;top:0;left:0;width:100%;height:100%;"></div>
+      <div class="app-prompt-overlay" id="appPromptOverlay">
+        <div class="app-prompt-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+        <h3 class="app-prompt-heading" id="appPromptHeading">Loved what you saw? 🎉</h3>
+        <p class="app-prompt-desc">You can find this complete course with video lectures, notes, and MCQs directly inside our mobile app!</p>
+        <div class="app-prompt-btns">
+          <a href="https://play.google.com/store/apps/details?id=co.white.iebqk&pcampaignid=web_share" target="_blank" rel="noopener" class="app-prompt-btn">
+            <i class="fa-brands fa-google-play"></i>
+            <div><div class="app-prompt-btn-label">Get it on</div><div class="app-prompt-btn-store">Google Play</div></div>
+          </a>
+          <a href="https://apps.apple.com/pt/app/purple-hat/id6670333636?l=en-GB&platform=watch" target="_blank" rel="noopener" class="app-prompt-btn">
+            <i class="fa-brands fa-apple"></i>
+            <div><div class="app-prompt-btn-label">Download on the</div><div class="app-prompt-btn-store">App Store</div></div>
+          </a>
+        </div>
+        <button class="app-prompt-replay" id="appPromptReplay"><i class="fa-solid fa-rotate-right"></i> Watch again</button>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:10px;">
+      <button id="skipToAppBtn" style="background:none;border:none;font-size:0.78rem;color:var(--muted);cursor:pointer;transition:color 0.2s;" onmouseover="this.style.color='var(--primary)'" onmouseout="this.style.color='var(--muted)'">
+        <i class="fa-solid fa-mobile-screen-button" style="margin-right:4px;"></i>Skip to App Download
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- MARQUEE BAR -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">1k+</span> App Downloads</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">33k+</span> YouTube Subscribers</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">80+</span> Courses Available</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">6k+</span> Successfull Passouts</span>
+    <span class="marquee-item"><span class="dot">★</span> Engineering झाली सोपी</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">1k+</span> App Downloads</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">33k+</span> YouTube Subscribers</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">80+</span> Courses Available</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">6k+</span> Successfull Passouts</span>
+    <span class="marquee-item"><span class="dot">★</span> Engineering झाली सोपी</span>
+  </div>
+  <div class="marquee-track" aria-hidden="true">
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">1k+</span> App Downloads</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">33k+</span> YouTube Subscribers</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">80+</span> Courses Available</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">6k+</span> Successfull Passouts</span>
+    <span class="marquee-item"><span class="dot">★</span> Engineering झाली सोपी</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">1k+</span> App Downloads</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">33k+</span> YouTube Subscribers</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">80+</span> Courses Available</span>
+    <span class="marquee-item"><span class="dot">★</span> <span class="marquee-num">6k+</span> Successfull Passouts</span>
+    <span class="marquee-item"><span class="dot">★</span> Engineering झाली सोपी</span>
+  </div>
+</div>
+
+<!-- ANIMATED BOXES + WHY PURPLE HAT -->
+<section class="section" style="background:var(--primary-light);">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-7">
+        <span class="badge-tag">By the numbers</span>
+        <h2 class="section-title">Results that speak<br>for themselves.</h2>
+        <p class="section-sub">Every number here is a student who trusted us and cleared their exam.</p>
+      </div>
+    </div>
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-3"><div class="stat-box" data-delay="0"><div class="stat-box-glow"></div><div class="stat-box-icon"><i class="fa-solid fa-users"></i></div><div class="stat-box-num"><span class="counter" data-target="50" data-suffix="K+">0K+</span></div><div class="stat-box-label">Students Enrolled</div><p class="stat-box-desc">Degree &amp; Diploma students who cleared exams with Purple Hat coaching.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="stat-box" data-delay="100"><div class="stat-box-glow"></div><div class="stat-box-icon"><i class="fa-solid fa-book-open-reader"></i></div><div class="stat-box-num"><span class="counter" data-target="80" data-suffix="+">0+</span></div><div class="stat-box-label">Courses Available</div><p class="stat-box-desc">Subject-wise modules for all semesters. Pick exactly what you need.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="stat-box" data-delay="200"><div class="stat-box-glow"></div><div class="stat-box-icon"><i class="fa-solid fa-trophy"></i></div><div class="stat-box-num"><span class="counter" data-target="95" data-suffix="%">0%</span></div><div class="stat-box-label">Pass Rate</div><p class="stat-box-desc">Students consistently score first class after joining our programme.</p></div></div>
+      <div class="col-md-6 col-lg-3"><div class="stat-box" data-delay="300"><div class="stat-box-glow"></div><div class="stat-box-icon"><i class="fa-solid fa-calendar-check"></i></div><div class="stat-box-num"><span class="counter" data-target="10" data-suffix="+">0+</span></div><div class="stat-box-label">Years Teaching</div><p class="stat-box-desc">Since 2014, simplifying complex engineering concepts for real students.</p></div></div>
+    </div>
+    <div class="row justify-content-center text-center mb-5 mt-2">
+      <div class="col-lg-7">
+        <span class="badge-tag">Why Us</span>
+        <h2 class="section-title">Why students choose<br><span style="color:var(--primary)">Purple Hat Institute</span></h2>
+        <p class="section-sub">We're not just another coaching class. We're built around one goal: your exam success.</p>
+      </div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-delay="0"><div class="why-icon"><i class="fa-solid fa-chalkboard-user"></i></div><div><div class="why-title">Expert Faculty — Mangesh Sir</div><p class="why-desc">10+ years of experience turning average students into toppers. Direct, no-nonsense teaching that actually sticks.</p></div></div>
+      <div class="why-card" data-delay="80"><div class="why-icon"><i class="fa-solid fa-language"></i></div><div><div class="why-title">Marathi &amp; English Medium</div><p class="why-desc">Concepts explained in your native language so you truly understand — not just memorise.</p></div></div>
+      <div class="why-card" data-delay="160"><div class="why-icon"><i class="fa-solid fa-mobile-screen-button"></i></div><div><div class="why-title">Learn Anytime on Mobile</div><p class="why-desc">Watch lectures, solve practice questions and download notes — all on our app. No fixed schedule.</p></div></div>
+      <div class="why-card" data-delay="240"><div class="why-icon"><i class="fa-solid fa-indian-rupee-sign"></i></div><div><div class="why-title">Affordable Subject-wise Pricing</div><p class="why-desc">Pay only for the subjects you need. No bundled packages, no hidden fees. Your budget, your choice.</p></div></div>
+      <div class="why-card" data-delay="320"><div class="why-icon"><i class="fa-solid fa-rotate-right"></i></div><div><div class="why-title">Unlimited Replay &amp; Revision</div><p class="why-desc">Missed a concept? Replay the lecture as many times as you want before the exam.</p></div></div>
+      <div class="why-card" data-delay="400"><div class="why-icon"><i class="fa-solid fa-file-circle-check"></i></div><div><div class="why-title">Exam-Oriented Strategy</div><p class="why-desc">We focus on what actually comes in your university exam — no wasted time on irrelevant theory.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO TESTIMONIALS -->
+<section class="video-section">
+  <div class="container">
+    
+    <div class="testimonial-grid">
+      
+      <!-- LEFT: Vertical Reel Carousel -->
+      <div class="reel-outer">
+        <div class="reel-frame-wrap">
+          <button class="reel-nav-btn reel-nav-prev" id="reelPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="reel-nav-btn reel-nav-next" id="reelNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          
+          <div class="reel-frame" id="reelFrame">
+            <div class="reel-progress-bar" id="reelProgress"></div>
+            <div class="reel-counter" id="reelCounter">1 / 6</div>
+            <div class="reel-track">
+
+              <div class="reel-slide active" data-vid="Vm0y0iVNNpo" data-name="Clear Concept Understanding" data-course="Purple Hat Student Review">
+                <iframe src="https://www.youtube.com/embed/Vm0y0iVNNpo?enablejsapi=1&autoplay=1&mute=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen title="Testimonial 1"></iframe>
+                <div class="reel-label"><div class="reel-label-title">Clear Concept Understanding</div><div class="reel-label-sub">Purple Hat Student Review</div></div>
+              </div>
+
+              <div class="reel-slide" data-vid="8oYGZblKFyI" data-name="Excellent Teaching Methodology" data-course="Purple Hat Student Review">
+                <iframe src="" data-src="https://www.youtube.com/embed/8oYGZblKFyI?enablejsapi=1&autoplay=1&mute=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen title="Testimonial 2"></iframe>
+                <div class="reel-label"><div class="reel-label-title">Excellent Teaching Methodology</div><div class="reel-label-sub">Purple Hat Student Review</div></div>
+              </div>
+
+              <div class="reel-slide" data-vid="UxkiafQ_yos" data-name="Scored Distinction Successfully" data-course="Purple Hat Student Review">
+                <iframe src="" data-src="https://www.youtube.com/embed/UxkiafQ_yos?enablejsapi=1&autoplay=1&mute=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen title="Testimonial 3"></iframe>
+                <div class="reel-label"><div class="reel-label-title">Scored Distinction Successfully</div><div class="reel-label-sub">Purple Hat Student Review</div></div>
+              </div>
+
+              <div class="reel-slide" data-vid="4ubnZNoIuRY" data-name="Easy to Learn App" data-course="Purple Hat Student Review">
+                <iframe src="" data-src="https://www.youtube.com/embed/4ubnZNoIuRY?enablejsapi=1&autoplay=1&mute=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen title="Testimonial 4"></iframe>
+                <div class="reel-label"><div class="reel-label-title">Easy to Learn App</div><div class="reel-label-sub">Purple Hat Student Review</div></div>
+              </div>
+
+              <div class="reel-slide" data-vid="2035pDWv1EQ" data-name="Highly Recommended for Engineering" data-course="Purple Hat Student Review">
+                <iframe src="" data-src="https://www.youtube.com/embed/2035pDWv1EQ?enablejsapi=1&autoplay=1&mute=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen title="Testimonial 5"></iframe>
+                <div class="reel-label"><div class="reel-label-title">Highly Recommended for Engineering</div><div class="reel-label-sub">Purple Hat Student Review</div></div>
+              </div>
+
+              <div class="reel-slide" data-vid="sNwc5X5faos" data-name="Cleared All Backlogs Easily" data-course="Purple Hat Student Review">
+                <iframe src="" data-src="https://www.youtube.com/embed/sNwc5X5faos?enablejsapi=1&autoplay=1&mute=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen title="Testimonial 6"></iframe>
+                <div class="reel-label"><div class="reel-label-title">Cleared All Backlogs Easily</div><div class="reel-label-sub">Purple Hat Student Review</div></div>
+              </div>
+
+            </div>
+            <button class="reel-mute-btn" id="reelMuteBtn" aria-label="Toggle mute"><i class="fa-solid fa-volume-xmark" id="reelMuteIcon"></i></button>
+          </div>
+        </div>
+
+        <div class="reel-dots" id="reelDots">
+          <div class="reel-dot active" data-idx="0"></div>
+          <div class="reel-dot" data-idx="1"></div>
+          <div class="reel-dot" data-idx="2"></div>
+          <div class="reel-dot" data-idx="3"></div>
+          <div class="reel-dot" data-idx="4"></div>
+          <div class="reel-dot" data-idx="5"></div>
+        </div>
+        <div class="reel-key-hint"><kbd>←</kbd> swipe or use arrows <kbd>→</kbd></div>
+      </div>
+      
+      <!-- RIGHT: Wall of Love -->
+      <div class="wol-content">
+        <span class="badge-tag" style="background:#fff; color:var(--primary); box-shadow:0 4px 10px rgba(153,0,204,.1);">Student Stories</span>
+        <h2 class="wol-heading">Don't just take our word for it. <br><span>Hear it from them.</span></h2>
+        <p class="wol-desc">Thousands of students have transformed their engineering journey with Purple Hat. They went from struggling with ATKTs to clearing with distinction.</p>
+        
+        <div class="wol-cards">
+          <!-- Floating Card 1 -->
+          <div class="wol-card wol-card-1">
+            <div class="wol-stars">★★★★★</div>
+            <p class="wol-text">"Before joining Purple Hat, M3 felt impossible. Mangesh sir's exact exam strategy helped me score 72/100. Best decision ever!"</p>
+            <div class="wol-author">
+              <div class="wol-avatar">S</div>
+              <div>
+                <div class="wol-name">Sanket Patil</div>
+                <div class="wol-course">SPPU Degree Student</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Floating Card 2 -->
+          <div class="wol-card wol-card-2">
+            <div class="wol-stars">★★★★★</div>
+            <p class="wol-text">"The mobile app is a lifesaver. I could revise all important derivations while travelling. Cleared all my backlogs in one go."</p>
+            <div class="wol-author">
+              <div class="wol-avatar">P</div>
+              <div>
+                <div class="wol-name">Priyanka Deshmukh</div>
+                <div class="wol-course">Diploma Computer Engg.</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Floating Card 3 -->
+          <div class="wol-card wol-card-3">
+            <div class="wol-stars">★★★★★</div>
+            <p class="wol-text">"Learning in Marathi + English makes concepts so much easier to grasp. Highly recommend for any engineering student!"</p>
+            <div class="wol-author">
+              <div class="wol-avatar">A</div>
+              <div>
+                <div class="wol-name">Aditya Jadhav</div>
+                <div class="wol-course">Mechanical Branch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="wol-cta-wrap">
+          <a href="contact.html" class="btn-primary-custom"><i class="fa-solid fa-rocket"></i> Start Your Success Story</a>
+          <div class="wol-stats-badge"><i class="fa-solid fa-graduation-cap"></i> 50K+ Happy Students</div>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 d-flex flex-column align-items-start">
+        <div class="footer-logo"><img src="logo.png" alt="Purple Hat Institute"></div>
+        <p class="footer-desc">We provide quality engineering education in Marathi and English. Making engineering simple since 2014.</p>
+        <div class="social-links">
+          <a href="https://www.youtube.com/@PURPLEHAT" target="_blank" class="social-link"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.instagram.com/purplehatinstitute/" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/purple-hat-institute-891418359/" target="_blank" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=co.white.iebqk" target="_blank">Our App</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="footer-heading">Need Help?</div>
+        <p style="font-size:.88rem;margin-bottom:4px;color:var(--muted);">Call us directly</p>
+        <a href="tel:8484813498" style="color:var(--primary);font-size:1.1rem;font-weight:700;text-decoration:none;display:block;margin-bottom:16px;">8484813498</a>
+        <p style="font-size:.88rem;margin-bottom:8px;color:var(--muted);">Visit our centers:</p>
+        <p style="font-size:.85rem;margin-bottom:4px;color:var(--muted);"><i class="fa-solid fa-location-dot me-2" style="color:var(--primary);"></i>KBT Circle, Nashik</p>
+        <p style="font-size:.85rem;color:var(--muted);"><i class="fa-solid fa-location-dot me-2" style="color:var(--primary);"></i>Indira Nagar, Nashik</p>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-heading">Download App</div>
+        <a href="https://play.google.com/store/apps/details?id=co.white.iebqk&pcampaignid=web_share" target="_blank" class="app-btn">
+          <i class="fa-brands fa-google-play"></i>
+          <div><div class="app-btn-label">Get it on</div><div class="app-btn-store">Google Play</div></div>
+        </a>
+        <a href="https://apps.apple.com/pt/app/purple-hat/id6670333636?l=en-GB&platform=watch" target="_blank" class="app-btn">
+          <i class="fa-brands fa-apple"></i>
+          <div><div class="app-btn-label">Download on the</div><div class="app-btn-store">App Store</div></div>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start"><p class="footer-bottom-text mb-0">&copy; 2025 Purple Hat Institute. All rights reserved.</p></div>
+        <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html" style="margin-right:0;">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/918484813498?text=Hi%2C%20I%20want%20to%20know%20more%20about%20Purple%20Hat%20courses." target="_blank" class="whatsapp-btn" rel="noopener noreferrer">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="https://unpkg.com/atropos@2/atropos.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Sticky header
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60));
+
+  // Mobile menu
+  const hamburger = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('mobileOverlay');
+  const closeBtn = document.getElementById('mobileClose');
+  function openMenu() { mobileMenu.classList.add('open'); overlay.classList.add('open'); mobileMenu.style.display='block'; overlay.style.display='block'; }
+  function closeMenu() { mobileMenu.classList.remove('open'); overlay.classList.remove('open'); setTimeout(()=>{ mobileMenu.style.display='none'; overlay.style.display='none'; },350); }
+  hamburger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+
+  // Atropos Parallax Initialization
+  if (typeof Atropos !== 'undefined') {
+    Atropos({
+      el: '.my-atropos',
+      activeOffset: 40,
+      rotateXMax: 10,
+      rotateYMax: 10,
+      stretchZ: 10,
+      highlight: false,
+      shadow: false
+    });
+  }
+
+  // Counter animation
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const isLarge = target >= 1000;
+    const duration = 1800;
+    const start = performance.now();
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const val = Math.floor(ease * target);
+      el.textContent = isLarge ? Math.floor(val/1000) + 'K' + suffix : val + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  // Scroll reveal
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target;
+      const delay = parseInt(el.dataset.delay || 0, 10);
+      setTimeout(() => {
+        el.classList.add('visible');
+        el.querySelectorAll('.counter').forEach(c => animateCounter(c));
+      }, delay);
+      revealObs.unobserve(el);
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.stat-box, .why-card, .course-card').forEach(el => revealObs.observe(el));
+
+  // ── Reel Testimonial Slider ──────────────────────────────────────
+  const reelSlides   = Array.from(document.querySelectorAll('.reel-slide'));
+  const reelDotEls   = Array.from(document.querySelectorAll('.reel-dot'));
+  const reelInfoName = document.getElementById('reelInfoName');
+  const reelInfoCourse = document.getElementById('reelInfoCourse');
+  const reelProgress = document.getElementById('reelProgress');
+  const reelCounter  = document.getElementById('reelCounter');
+  const reelPrev     = document.getElementById('reelPrev');
+  const reelNext     = document.getElementById('reelNext');
+  const reelFrame    = document.getElementById('reelFrame');
+  const reelMuteBtn  = document.getElementById('reelMuteBtn');
+  const reelMuteIcon = document.getElementById('reelMuteIcon');
+
+  let reelCurrent = 0;
+  let reelTimer   = null;
+  let isMuted     = true;
+  const REEL_DURATION = 9000;
+
+  // ── YouTube postMessage helpers ──
+  function ytCmd(iframe, fn, args) {
+    try { iframe.contentWindow.postMessage(JSON.stringify({event:'command',func:fn,args:args||''}), '*'); } catch(_){}
+  }
+  function unmuteSlide(slide) {
+    const f = slide.querySelector('iframe');
+    if (!f || !f.getAttribute('src')) return;
+    // Give YouTube player a moment to init before sending commands
+    setTimeout(() => {
+      if (!isMuted) { ytCmd(f,'unMute'); ytCmd(f,'setVolume',[85]); }
+      ytCmd(f,'playVideo');
+    }, 700);
+  }
+  function muteSlide(slide) {
+    const f = slide.querySelector('iframe');
+    if (f) ytCmd(f,'pauseVideo');
+  }
+
+  // ── Lazy-load iframe ──
+  function loadSlideIframe(slide) {
+    const iframe = slide.querySelector('iframe');
+    if (iframe && iframe.dataset.src && !iframe.getAttribute('src')) {
+      iframe.src = iframe.dataset.src;
+    }
+  }
+
+  // ── Core slide transition ──
+  function goToSlide(idx, dir) {
+    if (idx === reelCurrent) return;
+    const prev = reelCurrent;
+
+    // Exit current
+    muteSlide(reelSlides[prev]);
+    reelSlides[prev].classList.remove('active');
+    reelSlides[prev].classList.add(dir === 'next' ? 'exit-left' : 'exit-right');
+
+    reelCurrent = idx;
+    loadSlideIframe(reelSlides[reelCurrent]);
+
+    // Stage incoming slide off-screen
+    reelSlides[reelCurrent].style.transition = 'none';
+    reelSlides[reelCurrent].style.transform = dir === 'next' ? 'translateX(105%)' : 'translateX(-105%)';
+    reelSlides[reelCurrent].style.opacity = '0';
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        reelSlides[reelCurrent].style.transition = '';
+        reelSlides[reelCurrent].style.transform = '';
+        reelSlides[reelCurrent].style.opacity = '';
+        reelSlides[reelCurrent].classList.add('active');
+      });
+    });
+
+    setTimeout(() => reelSlides[prev].classList.remove('exit-left','exit-right'), 650);
+
+    // Update UI
+    reelDotEls.forEach((d,i) => d.classList.toggle('active', i === reelCurrent));
+    reelCounter.textContent = `${reelCurrent + 1} / ${reelSlides.length}`;
+    reelInfoName.textContent   = reelSlides[reelCurrent].dataset.name;
+    reelInfoCourse.textContent = reelSlides[reelCurrent].dataset.course;
+
+    // Unmute new slide after transition settles
+    unmuteSlide(reelSlides[reelCurrent]);
+    startProgress();
+  }
+
+  // ── Progress bar ──
+  function startProgress() {
+    // Disabled fake 9-second progress bar
+    reelProgress.style.display = 'none';
+  }
+  function freezeProgress() {
+    reelProgress.style.display = 'none';
+  }
+
+  // ── Autoplay ──
+  function startAutoplay() {
+    // Removed fixed timer so videos can play fully. Auto-advance handled by YouTube 'onStateChange' message
+    clearTimeout(reelTimer);
+  }
+  function stopAutoplay() { clearTimeout(reelTimer); }
+
+  // ── Mute toggle ──
+  function syncMuteIcon() {
+    reelMuteIcon.className = isMuted ? 'fa-solid fa-volume-xmark' : 'fa-solid fa-volume-high';
+  }
+  reelMuteBtn.addEventListener('click', () => {
+    isMuted = !isMuted;
+    syncMuteIcon();
+    const f = reelSlides[reelCurrent].querySelector('iframe');
+    if (f) { isMuted ? ytCmd(f,'mute') : (ytCmd(f,'unMute'), ytCmd(f,'setVolume',[85])); }
+  });
+
+  // ── Arrow nav ──
+  reelPrev.addEventListener('click', () => { stopAutoplay(); goToSlide((reelCurrent - 1 + reelSlides.length) % reelSlides.length,'prev'); startAutoplay(); });
+  reelNext.addEventListener('click', () => { stopAutoplay(); goToSlide((reelCurrent + 1) % reelSlides.length,'next'); startAutoplay(); });
+
+  // ── Dot nav ──
+  reelDotEls.forEach((dot,i) => dot.addEventListener('click', () => {
+    if (i === reelCurrent) return;
+    stopAutoplay(); goToSlide(i, i > reelCurrent ? 'next' : 'prev'); startAutoplay();
+  }));
+
+  // ── Pause on hover ──
+  reelFrame.addEventListener('mouseenter', stopAutoplay);
+  reelFrame.addEventListener('mouseleave', () => { startProgress(); startAutoplay(); });
+
+  // ── Keyboard ←/→ ──
+  document.addEventListener('keydown', (e) => {
+    const rect = reelFrame.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (!inView) return;
+    if (e.key === 'ArrowLeft')  { stopAutoplay(); goToSlide((reelCurrent - 1 + reelSlides.length) % reelSlides.length,'prev'); startAutoplay(); }
+    if (e.key === 'ArrowRight') { stopAutoplay(); goToSlide((reelCurrent + 1) % reelSlides.length,'next'); startAutoplay(); }
+  });
+
+  // ── Touch / swipe ──
+  let touchStartX = 0;
+  reelFrame.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].clientX; }, {passive:true});
+  reelFrame.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) < 40) return;
+    stopAutoplay();
+    dx < 0 ? goToSlide((reelCurrent + 1) % reelSlides.length,'next') : goToSlide((reelCurrent - 1 + reelSlides.length) % reelSlides.length,'prev');
+    startAutoplay();
+  }, {passive:true});
+
+  // ── Auto-advance on YouTube video end ──
+  window.addEventListener('message', (e) => {
+    try {
+      const data = JSON.parse(e.data);
+      if (data.event === 'onStateChange' && data.info === 0) {
+        stopAutoplay(); goToSlide((reelCurrent + 1) % reelSlides.length,'next'); startAutoplay();
+      }
+    } catch(_) {}
+  });
+
+  // ── Initial State ──
+  syncMuteIcon();
+
+  startProgress();
+  startAutoplay();
+</script>
+
+<div id="ph-overlay">
+  <div class="ph-ov-blob ph-ov-blob-1"></div>
+  <div class="ph-ov-blob ph-ov-blob-2"></div>
+  <img src="logo.png" alt="" class="ph-ov-logo" aria-hidden="true">
+  <div class="ph-ov-name">Purple Hat Institute</div>
+  <div class="ph-ov-bar"><div class="ph-ov-fill" id="phOvFill"></div></div>
+</div>
+<script>
+  (function(){
+    var ov = document.getElementById('ph-overlay');
+    if(ov){ requestAnimationFrame(function(){ requestAnimationFrame(function(){ ov.style.opacity='0'; ov.style.pointerEvents='none'; }); }); }
+    document.addEventListener('click', function(e){
+      var link = e.target.closest('a[href]');
+      if(!link) return;
+      var href = link.getAttribute('href');
+      if(!href || href.charAt(0)==='#' || href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('javascript') || link.getAttribute('target')==='_blank') return;
+      e.preventDefault();
+      var ov2 = document.getElementById('ph-overlay');
+      if(ov2){
+        var fill = document.getElementById('phOvFill');
+        if(fill){ fill.style.animation='none'; fill.offsetWidth; fill.style.animation=''; }
+        ov2.style.transition='opacity .3s ease';
+        ov2.style.opacity='1';
+        ov2.style.pointerEvents='all';
+      }
+      setTimeout(function(){ window.location.href = href; }, 400);
+    });
+  })();
+
+  /* CUSTOM COURSES JS */
+  const branchesData = [
+    {
+      id: 'fe', icon: 'fa-book',
+      name: 'First Year (FE)', subtitle: 'Start Your Engineering Journey',
+      courses: [
+        {name:'Engineering Mathematics 1 (M1)', videoId:'EEogdYsEy_g'},
+        {name:'Engineering Mathematics 2 (M2)', videoId:'_ATRk6lQBzw'},
+        {name:'Engineering Mechanics (EM)', videoId:'0HMz8QlmNqs'},
+        {name:'Engineering Graphics (EG)', videoId:'CMdScMpUbeA'},
+        {name:'Basic Electrical Engineering (BEE)', videoId:'QUtzlUdFEog'},
+        {name:'Basic Electronics Engineering (BXE)', videoId:'gtstuic45o4'},
+        {name:'Programming & Problem Solving (PPS)', videoId:'EaacgHWFpRg'},
+        {name:'Fundamentals of Programming Languages (FPL)', videoId:'Xi2pUTTqefo'},
+        {name:'Engineering Physics (EP)', videoId:'pWx7Pqw2hUw'},
+        {name:'Engineering Chemistry (EC)', videoId:'3BjMPr4yS0k'}
+      ]
+    },
+    {
+      id: 'computer', icon: 'fa-laptop-code',
+      name: 'Computer / IT / AIDS / AIML / CSE / CS', subtitle: 'Build Strong Coding & Logic',
+      courses: [
+        {name:'Probability & Statistics (PS)', videoId:'KQ2aG8h3U4E'},
+        {name:'Engineering Mathematics 3 (M3)', videoId:'uSC-yOn6AmE'},
+        {name:'Discrete Mathematics (DM)', videoId:'Qn1k5Gy1mBE'},
+        {name:'Data Structure (DS)', videoId:null},
+        {name:'Data Structure & Algorithm (DSA/ FDS)', videoId:'2954ch_uREE'},
+        {name:'Theory of Computation (TOC)', videoId:'jHgQyqfqG90'},
+        {name:'Database Management System (DBMS)', videoId:'54CtcTjBH9E'},
+        {name:'Operating System (OS)', videoId:'zEXAieO0NfU'},
+        {name:'Internet of Things (IoT)', videoId:'L3uzIe9uh6o'},
+        {name:'Artificial Intelligence (AI)', videoId:'f5MEmHMYq8w'},
+        {name:'Machine Learning (ML)', videoId:'E1ZA2XWdzCw'},
+        {name:'Data Science (DS)', videoId:null},
+        {name:'Digital Electronics & Logic Design (DELD)', videoId:'ldEsngUAbCM'},
+        {name:'Object Oriented Programming (OOP)', videoId:'SeIFYE0RSew'},
+        {name:'Computer Organization & Microprocessor (COMP / MP)', videoId:'ifrnTpumeJ8'},
+        {name:'Processor Architecture (PA)', videoId:'HYb2LqML1tQ'},
+        {name:'Computer Network & Security (CNS)', videoId:'1ajEZ540OBI'},
+        {name:'Design & Analysis of Algorithms (DAA)', videoId:'6RPCiagN3T8'}
+      ]
+    },
+    {
+      id: 'mechanical', icon: 'fa-gears',
+      name: 'Mechanical / A&R / Sandwich / R&A / Auto', subtitle: 'Master Core Mechanical Concepts',
+      courses: [
+        {name:'Engineering Mathematics 3 (M3)', videoId:'IPzm87NSHTw'},
+        {name:'Solid Mechanics (SM)', videoId:'LV0rwIFpas8'},
+        {name:'Strength of Materials (SOM)', videoId:'XyJ4VKpbFQM'},
+        {name:'Fluid Mechanics (FM)', videoId:'aCcjmbtZwCg'},
+        {name:'Engineering Thermodynamics (ET)', videoId:'mE1csN2mmOk'},
+        {name:'Applied Thermodynamics (AT)', videoId:'yFHAyr6kJNg'},
+        {name:'Heat & Mass Transfer (HMT)', videoId:'JoAD5J2co9A'},
+        {name:'Numerical & Statistical Methods (NSM)', videoId:'9TzuwTqdaUo'},
+        {name:'Artificial Intelligence & ML (AIML)', videoId:null},
+        {name:'Design of Transmission Systems (DTS)', videoId:'pG8ealryqxM'},
+        {name:'Mechatronics (MTRX)', videoId:'pF54dDfrtN8'},
+        {name:'Turbomachinery (TM)', videoId:'x4qKOWPtc5s'},
+        {name:'Dynamics of Machinery (DOM)', videoId:null},
+        {name:'Design of Machine Elements (DME)', videoId:null}
+      ]
+    },
+    {
+      id: 'electrical', icon: 'fa-bolt',
+      name: 'Electrical Engineering', subtitle: 'High Scoring Numerical Practice',
+      courses: [
+        {name:'Engineering Mathematics 3 (M3)', videoId:'yB0Uk0dUWbU'},
+        {name:'Analog Digital Electronics (ADE)', videoId:'7xR_vztNI1I'},
+        {name:'Power Systems 1 & 2 (PS1 / PS2)', videoId:'XCi3oABkQ-Y'},
+        {name:'Network Analysis (NA)', videoId:'GwRhRgw_04M'},
+        {name:'Numerical Methods & Computer Programming (NMCP)', videoId:'8jjpv7WDTU4'},
+        {name:'Electrical Machines 1 & 2 (EM1 / EM2)', videoId:'-i29m_s9DqU'},
+        {name:'Fundamentals of Data Science & Machine Learning (FDSML)', videoId:'o5qNR2RumbU'},
+        {name:'Power Electronics (PE)', videoId:'cVIuliuXf-Y'},
+        {name:'Control Systems (CS)', videoId:'BMizw982tg8'},
+        {name:'Advanced Control Systems (ACS)', videoId:'R4-EK0g8OJ4'},
+        {name:'Advance Microcontroller & Embedded System (AMES)', videoId:'yHf0DTcyGuc'}
+      ]
+    },
+    {
+      id: 'civil', icon: 'fa-building',
+      name: 'Civil Engineering', subtitle: 'Strong Concepts & Theory',
+      courses: [
+        {name:'Engineering Mathematics 3 (M3)', videoId:'za07BGclshg'},
+        {name:'Structural Analysis (SA)', videoId:'D80eOqCOWDU'},
+        {name:'Mechanics of Structures (MOS)', videoId:'9UAka1dWwok'},
+        {name:'Fluid Mechanics (FM)', videoId:'jsgoHTR7M0Y'},
+        {name:'Surveying (SUR)', videoId:'HlCh9KOZzes'},
+        {name:'Building Construction & Materials (BCM)', videoId:'zoJJS9tWBS4'},
+        {name:'Concrete Technology (CT)', videoId:'jUoZ6JVjkus'},
+        {name:'Geotechnical Engineering (GT)', videoId:null},
+        {name:'Engineering Geology (EG)', videoId:null},
+        {name:'Design of Reinforced Concrete Structures (DRCS)', videoId:'i3wbLRshQYg'},
+        {name:'Design of Steel Structures (DSS)', videoId:'uFhpA2EHX14'},
+        {name:'Foundation Engineering (FE)', videoId:'hkmBnF1tiCk'},
+        {name:'Quantity Surveying, Contract & Tenders (QSCT)', videoId:'JsDKWZrjyNo'}
+      ]
+    },
+    {
+      id: 'electronics', icon: 'fa-microchip',
+      name: 'Electronics / E&TC / ECE / E&C / VLSI', subtitle: 'Technical Subjects Made Simple',
+      courses: [
+        {name:'Engineering Mathematics 3 (M3)', videoId:'kp1zsyw8kVU'},
+        {name:'Discrete Mathematics (DM)', videoId:'DnajtX-rM14'},
+        {name:'Artificial Intelligence & Machine Learning (AIML)', videoId:'sFDEbdj_qyY'},
+        {name:'Analog & Digital Electronics Circuits (ADEC)', videoId:'gJmOEOalanw'},
+        {name:'Digital Electronics (DE)', videoId:'T2Pb8G-PAro'},
+        {name:'Statistical Data Analysis & Visualization (SDAV)', videoId:'SK9l15y9YUc'},
+        {name:'Electronic Circuits (EC)', videoId:'j6Fr3jGrMDo'},
+        {name:'Signals & Systems (SS)', videoId:'cajX0OXhST8'},
+        {name:'Control Systems (CS)', videoId:'PYDohIFNzvA'},
+        {name:'Data Structures & Algorithms (DS / DSA)', videoId:'5s15YN4ooCE'},
+        {name:'Object-Oriented Programming (OOP)', videoId:'UUTXJFOhhz8'},
+        {name:'Communication Engineering (CE)', videoId:'uIFKVyc5-78'},
+        {name:'Electromagnetics & Field Theory (EFT)', videoId:'sBoM2MxowAk'},
+        {name:'Microcontrollers (MC)', videoId:'2V1bep_EJ1I'}
+      ]
+    }
+  ];
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const grid         = document.getElementById('branchesGrid');
+    const overlay      = document.getElementById('courseModalOverlay');
+    const closeBtn     = document.getElementById('courseModalClose');
+    const listView     = document.getElementById('courseListView');
+    const detailView   = document.getElementById('courseDetailView');
+    const listWrap     = document.getElementById('courseListWrap');
+
+    // Video demo modal elements
+    const videoOverlay  = document.getElementById('videoDemoOverlay');
+    const videoTitle    = document.getElementById('videoDemoTitle');
+    const videoTopic    = document.getElementById('videoDemoTopic');
+    const videoCloseBtn = document.getElementById('videoDemoClose');
+    const appPrompt     = document.getElementById('appPromptOverlay');
+    const appHeading    = document.getElementById('appPromptHeading');
+    const replayBtn     = document.getElementById('appPromptReplay');
+    let ytPlayer        = null;
+    let currentVideoId  = null;
+
+    if (!grid) return;
+
+    // ── Render Branch Cards ──
+    branchesData.forEach(b => {
+      const col = document.createElement('div');
+      col.className = 'col-6 col-lg-4';
+      col.innerHTML = `
+        <div class="branch-card" onclick="openBranch('${b.id}')">
+          <div class="branch-icon"><i class="fa-solid ${b.icon}"></i></div>
+          <h3 class="branch-title">${b.name}</h3>
+          <div class="branch-subtitle">${b.subtitle}</div>
+        </div>`;
+      grid.appendChild(col);
+    });
+
+    // ── Open branch modal ──
+    window.openBranch = (id) => {
+      const branch = branchesData.find(b => b.id === id);
+      if (!branch) return;
+      document.getElementById('modalBranchBadge').textContent = branch.name;
+      document.getElementById('modalBranchTitle').textContent = branch.subtitle;
+      listWrap.innerHTML = '';
+      branch.courses.forEach((c, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'course-item-btn';
+        btn.style.animationDelay = (idx * 0.04) + 's';
+        btn.onclick = () => openDemoVideo(c.name, c.videoId);
+        const hasVideo = !!c.videoId;
+        btn.innerHTML = `
+          <span class="course-item-name"><i class="fa-solid fa-play"></i> ${c.name}</span>
+          <span style="display:flex;align-items:center;gap:8px;">
+            ${hasVideo ? '<span style="font-size:.72rem;font-weight:700;color:var(--primary);background:rgba(153,0,204,.08);padding:3px 10px;border-radius:50px;white-space:nowrap;"><i class="fa-solid fa-circle-play" style="margin-right:4px;"></i>Watch Demo</span>' : '<span style="font-size:.72rem;color:var(--muted);">Coming Soon</span>'}
+            <i class="fa-solid fa-chevron-right course-item-arrow"></i>
+          </span>`;
+        listWrap.appendChild(btn);
+        requestAnimationFrame(() => btn.classList.add('animate-in'));
+      });
+      listView.style.display = 'block';
+      detailView.style.display = 'none';
+      overlay.classList.add('active');
+    };
+
+    // ── Build YT.Player inside container ──
+    function createYTPlayer(videoId) {
+      // Wipe container and insert fresh div target
+      const container = document.getElementById('ytPlayerContainer');
+      container.innerHTML = '<div id="ytPlayerDiv"></div>';
+      ytPlayer = new YT.Player('ytPlayerDiv', {
+        videoId: videoId,
+        width: '100%',
+        height: '100%',
+        playerVars: { autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1 },
+        events: {
+          onReady: e => e.target.playVideo(),
+          onStateChange: e => {
+            if (e.data === YT.PlayerState.ENDED) {
+              setTimeout(() => appPrompt.classList.add('show'), 400);
+            }
+          }
+        }
+      });
+    }
+
+    // ── Open Demo Video Modal ──
+    window.openDemoVideo = (courseName, videoId) => {
+      // Close course list modal first
+      overlay.classList.remove('active');
+      appPrompt.classList.remove('show');
+      appHeading.textContent = 'Loved what you saw? 🎉';
+      videoTitle.textContent = courseName;
+      currentVideoId = videoId;
+
+      const container = document.getElementById('ytPlayerContainer');
+
+      if (!videoId) {
+        container.innerHTML = '';
+        videoTopic.textContent = '';
+        appHeading.textContent = '📚 ' + courseName;
+        setTimeout(() => appPrompt.classList.add('show'), 100);
+      } else {
+        videoTopic.textContent = '▶ Demo Lecture';
+        appPrompt.classList.remove('show');
+        // Create player (YT API must be ready — it loads async)
+        if (typeof YT !== 'undefined' && YT.Player) {
+          createYTPlayer(videoId);
+        } else {
+          // API not ready yet — set a pending flag
+          window._pendingVideoId = videoId;
+        }
+      }
+      videoOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    // If API loads after openDemoVideo was called
+    const _origApiReady = window.onYouTubeIframeAPIReady;
+    window.onYouTubeIframeAPIReady = function() {
+      if (_origApiReady) _origApiReady();
+      if (window._pendingVideoId) {
+        createYTPlayer(window._pendingVideoId);
+        window._pendingVideoId = null;
+      }
+    };
+
+    // ── Close Video Modal ──
+    function closeVideoModal() {
+      videoOverlay.classList.remove('active');
+      appPrompt.classList.remove('show');
+      document.body.style.overflow = '';
+      // Destroy YT player to stop video
+      if (ytPlayer) {
+        try { ytPlayer.destroy(); } catch(e) {}
+        ytPlayer = null;
+      }
+      document.getElementById('ytPlayerContainer').innerHTML = '';
+    }
+    videoCloseBtn.addEventListener('click', closeVideoModal);
+    videoOverlay.addEventListener('click', e => { if (e.target === videoOverlay) closeVideoModal(); });
+
+    // ── Replay button ──
+    replayBtn.addEventListener('click', () => {
+      appPrompt.classList.remove('show');
+      if (currentVideoId) createYTPlayer(currentVideoId);
+    });
+
+    // ── Skip to App button ──
+    document.getElementById('skipToAppBtn').addEventListener('click', () => {
+      appHeading.textContent = 'Loved what you saw? 🎉';
+      appPrompt.classList.add('show');
+      if (ytPlayer) { try { ytPlayer.pauseVideo(); } catch(e) {} }
+    });
+
+
+    // ── Close Escape key ──
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        if (videoOverlay.classList.contains('active')) { closeVideoModal(); return; }
+        if (overlay.classList.contains('active')) overlay.classList.remove('active');
+      }
+    });
+
+    // ── Course list modal close ──
+    document.getElementById('courseModalBack').onclick = () => {
+      detailView.style.display = 'none';
+      listView.style.display = 'block';
+    };
+    closeBtn.onclick = () => overlay.classList.remove('active');
+    overlay.onclick = e => { if (e.target === overlay) overlay.classList.remove('active'); };
+  });
+</script>
+
+<!-- DEMO DISCOVERY POPUP -->
+<div id="demoPopup" role="dialog" aria-label="Demo videos available" aria-live="polite">
+  <div class="dpop-bar"></div>
+  <button class="dpop-close" id="dpopClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <div class="dpop-body">
+
+    <div class="dpop-header">
+      <div class="dpop-play-wrap" id="dpopPlayBtn" title="Start exploring demos">
+        <i class="fa-solid fa-play"></i>
+      </div>
+      <div class="dpop-header-text">
+        <div class="dpop-label">New — Free Demos</div>
+        <div class="dpop-title">Watch subject demos before enrolling!</div>
+      </div>
+    </div>
+
+    <p class="dpop-desc">
+      Each course card has a <strong>free demo video</strong> — watch real lecture clips and decide what you want to learn.
+    </p>
+
+    <div class="dpop-stats">
+      <div class="dpop-stat">
+        <div class="dpop-stat-num">80+</div>
+        <div class="dpop-stat-lbl">Courses</div>
+      </div>
+      <div class="dpop-stat">
+        <div class="dpop-stat-num">FREE</div>
+        <div class="dpop-stat-lbl">Demo Videos</div>
+      </div>
+      <div class="dpop-stat">
+        <div class="dpop-stat-num">50K+</div>
+        <div class="dpop-stat-lbl">Students</div>
+      </div>
+    </div>
+
+    <div class="dpop-pills">
+      <span class="dpop-pill"><i class="fa-solid fa-check"></i> Marathi Medium</span>
+      <span class="dpop-pill"><i class="fa-solid fa-check"></i> Exam Focused</span>
+      <span class="dpop-pill"><i class="fa-solid fa-check"></i> All Semesters</span>
+      <span class="dpop-pill"><i class="fa-solid fa-check"></i> No Login Needed</span>
+    </div>
+
+    <button class="dpop-cta" id="dpopExploreBtn">
+      <i class="fa-solid fa-circle-play"></i> Explore Course Demos
+    </button>
+    <button class="dpop-dismiss" id="dpopDismiss">Maybe later, I'll scroll myself</button>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    const popup   = document.getElementById('demoPopup');
+    const section = document.getElementById('explore-courses');
+    if (!popup || !section) return;
+
+    let shown = false;
+    let hideTimer = null;
+
+    function showPopup() {
+      if (shown) return;
+      shown = true;
+      popup.classList.add('show');
+      // Auto-hide after 12 seconds
+      hideTimer = setTimeout(hidePopup, 12000);
+    }
+
+    function hidePopup() {
+      clearTimeout(hideTimer);
+      popup.classList.remove('show');
+    }
+
+    // Trigger when courses section enters viewport
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          // Small delay for drama
+          setTimeout(showPopup, 600);
+          obs.unobserve(section);
+        }
+      });
+    }, { threshold: 0.25 });
+    obs.observe(section);
+
+    // Close button
+    document.getElementById('dpopClose').addEventListener('click', hidePopup);
+    // Dismiss text
+    document.getElementById('dpopDismiss').addEventListener('click', hidePopup);
+
+    // Explore button — scroll to section top smoothly and dismiss popup
+    document.getElementById('dpopExploreBtn').addEventListener('click', function () {
+      hidePopup();
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Play icon — same as explore
+    document.getElementById('dpopPlayBtn').addEventListener('click', function () {
+      hidePopup();
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  })();
+</script>
+</body>
+</html>

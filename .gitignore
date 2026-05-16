@@ -1,0 +1,14 @@
+.vercel
+temp_original_index.html
+temp_style.css
+temp_vendors.css
+node_modules
+
+# Backup files
+*.bak
+*.bak2
+
+# Dev/utility only
+download_assets.py
+graphify/
+CLAUDE.md
