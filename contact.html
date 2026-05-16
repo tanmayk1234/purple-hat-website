@@ -22,7 +22,8 @@
     --font-heading: 'Space Grotesk', sans-serif;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font-body); color: var(--dark); background: var(--primary-light); overflow-x: hidden; }
+  html, body { max-width: 100vw; overflow-x: hidden; }
+  body { font-family: var(--font-body); color: var(--dark); background: var(--primary-light); }
   h1,h2,h3,h4,h5,h6 { font-family: var(--font-heading); }
 
   /* ── HEADER (exact match with Home page) ─────────── */
@@ -242,22 +243,24 @@
   .success-msg.show { display: block; animation: fadeWord .4s ease; }
 
   /* ── MOBILE MENU ─────────────────────────── */
-  .mobile-menu { display: none; position: fixed; top: 0; right: 0; bottom: 0; width: 280px; background: var(--dark); z-index: 2000; padding: 30px 24px; transform: translateX(100%); transition: transform .35s; box-shadow: -10px 0 40px rgba(0,0,0,.3); }
+  .mobile-menu { display: none; position: fixed; top: 0; right: 0; bottom: 0; width: 280px; background: #fff; z-index: 2000; padding: 30px 24px; transform: translateX(100%); transition: transform .35s; box-shadow: -10px 0 40px rgba(153,0,204,.15); }
   .mobile-menu.open { transform: translateX(0); }
   .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1999; }
   .mobile-overlay.open { display: block; }
   .mobile-menu-links { list-style: none; margin-top: 40px; }
-  .mobile-menu-links li { border-bottom: 1px solid rgba(255,255,255,.08); }
-  .mobile-menu-links a { display: block; padding: 16px 0; font-size: 1rem; font-weight: 600; color: rgba(255,255,255,.8); text-decoration: none; }
+  .mobile-menu-links li { border-bottom: 1px solid rgba(153,0,204,.1); }
+  .mobile-menu-links a { display: block; padding: 16px 0; font-size: 1.05rem; font-weight: 700; color: var(--dark); text-decoration: none; }
   .mobile-menu-links a:hover, .mobile-menu-links a.active { color: var(--primary); }
-  .mobile-close { background: none; border: none; color: rgba(255,255,255,.6); font-size: 1.4rem; cursor: pointer; float: right; }
+  .mobile-close { background: none; border: none; color: var(--dark); font-size: 1.5rem; cursor: pointer; float: right; transition: color .2s; }
+  .mobile-close:hover { color: var(--primary); }
 
   /* ── RESPONSIVE ──────────────────────────── */
   @media (max-width: 991px) {
     .nav-links, .header-phone-wrap { display: none !important; }
-    .hamburger { display: block; }
-    .header-inner { padding: 0 15px; }
-    .header-logo img { height: 80px; width: auto; }
+    .hamburger { display: block; position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--primary); }
+    .header-inner { padding: 0 15px; display: flex; align-items: center; justify-content: flex-start; width: 100%; position: relative; }
+    .header-logo { margin: 0; padding: 0; }
+    .header-logo img { height: 115px !important; width: auto !important; max-width: none !important; margin-left: -18px; margin-top: 6px; }
     .form-card { padding: 32px 24px; }
   }
   @media (max-width: 767px) {
@@ -322,8 +325,8 @@
 <div class="mobile-overlay" id="mobileOverlay"></div>
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" id="mobileClose"><i class="fa-solid fa-xmark"></i></button>
-  <div style="margin-top:10px;">
-    <img src="logo.png" alt="Purple Hat" style="height:60px;width:auto;max-width:200px;object-fit:contain;">
+  <div style="margin-top:0px; text-align: left; overflow: hidden; height: 70px; display: flex; align-items: center;">
+    <img src="logo.png" alt="Purple Hat" style="height: 140px; width: auto; max-width: none; margin-left: -25px; margin-top: 5px;">
   </div>
   <ul class="mobile-menu-links">
     <li><a href="index.html">Home</a></li>
